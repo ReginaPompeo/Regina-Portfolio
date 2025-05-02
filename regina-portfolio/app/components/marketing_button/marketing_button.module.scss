@@ -1,0 +1,29 @@
+$primary-color: #14192d; // cor escura para o fundo da tela
+$secondary-color: #9885ff; // verde claro
+$tertiary-color: #f6f3f1; // branco
+
+$primary-font: 'DM Sans', sans-serif;
+$secondary-font: 'Roboto', sans-serif;
+
+.button {
+    background-color: $secondary-color;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background 0.4s ease-in-out;
+    color: $primary-color;
+    width: 80%;
+    font: $secondary-font;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-weight: bold;
+    max-height: 3rem;
+    border: 3.5px solid transparent;
+
+    
+    &:hover {
+        background-color: $primary-color;
+        color: $tertiary-color;
+        border-color: $secondary-color;
+    }
+}
