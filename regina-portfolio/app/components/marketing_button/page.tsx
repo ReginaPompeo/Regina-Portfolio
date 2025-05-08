@@ -16,7 +16,7 @@ const MarketingButton: React.FC<MarketingButtonProps> = ({ phone, message = '' }
 
   return (
     <button className={styles.button} onClick={handleClick}>
-      Fale comigo no WhatsApp
+      Vamos tirar sua ideia do papel?
     </button>
   );
 };

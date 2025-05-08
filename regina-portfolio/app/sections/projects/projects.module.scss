@@ -1,0 +1,60 @@
+$primary-color: #14192d;
+$secondary-color: #9885ff;
+$tertiary-color: #3fb6ff;
+$accent-color: #e61fc0;
+$text-color: #f6f3f1;
+
+$primary-font: 'Public Sans', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;
+
+.containerProjects{
+    min-height: calc(100vh - 90px);
+    background-image: url('/background/background-projects.svg');
+    background-size: cover;            // Faz a imagem preencher o container
+    background-repeat: no-repeat;      // Impede que a imagem se repita
+    background-position: center top;   // Alinha a imagem no topo e centraliza
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    gap:5rem;
+}
+
+.topContainer {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .subtitle {
+    color: $primary-color;
+    font-family: $primary-font;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-weight: 100;
+    font-size: 0.5rem;;
+  }
+  
+  .gradientBar {
+    width: 50%;
+    height: 8px;
+    margin:  0;
+    border-radius: 4px;
+    display: flex;
+    justify-content: left;
+    background: linear-gradient(90deg, #3fb6ff, #c835d4, #e61fc0);
+  }
+  
+  .title {
+    color: $primary-color;
+    font-family: $secondary-font;
+    font-weight: 500;
+    font-size: 2rem;
+  }
+
+.centerCarousel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}    

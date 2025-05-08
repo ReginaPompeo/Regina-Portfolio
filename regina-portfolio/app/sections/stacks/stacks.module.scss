@@ -1,0 +1,107 @@
+$primary-color: #14192d;
+$secondary-color: #9885ff;
+$tertiary-color: #3fb6ff;
+$accent-color: #e61fc0;
+$text-color: #f6f3f1;
+
+$primary-font: 'Public Sans', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;
+
+.containerStacks {
+    min-height: calc(100vh - 90px);
+    background-image: url('/background/background-stacks.svg');
+    background-size: cover;            // Faz a imagem preencher o container
+    background-repeat: no-repeat;      // Impede que a imagem se repita
+    background-position: center top;   // Alinha a imagem no topo e centraliza
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: clamp(1rem, 5vw, 5rem);
+    gap: 5rem;
+    position: relative; 
+  
+}
+
+.bottomContainer {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem; // adiciona espaçamento entre título e barra
+  
+    .title {
+      font-family: $secondary-font;
+      color: $text-color;
+      font-size: 2rem;
+      font-weight: 500;
+      text-align: right;
+      width: fit-content; // garante que só ocupe o tamanho do texto
+    }
+  
+    .gradientBar {
+        height: 8px;
+        width: 100%; // agora herda a largura do título
+        border-radius: 4px;
+        background: linear-gradient(90deg, #3fb6ff, #c835d4, #e61fc0);
+      }
+  }
+  
+  .typesWrapper {
+    margin-top: 3rem;
+    display: flex;
+    gap: 2.5rem; // espaço entre os typeContainer
+    flex-wrap: wrap; // para responsividade
+    justify-content: flex-start;
+  }
+  
+  .typeContainer{
+    display: flex;
+    flex-direction: column;
+    width: clamp(250px, 30%, 350px);
+    height: 400px;
+    background-color: black;
+    
+  }
+  .titleContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    color: $text-color;
+    text-transform: uppercase; // deixa tudo em maiúsculo
+    letter-spacing: 0.1rem;
+    font-size: 1.2rem;
+  }
+  .line {
+    width: auto;
+    height: 4px;
+    margin: 16px 0;
+    border-radius: 4px;
+    background: $text-color;
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        right: 0;
+        transform: translate(50%, -50%);
+        width: 18px;
+        height: 18px;
+        background: linear-gradient(90deg, #3fb6ff, #c835d4, #e61fc0);
+        border-radius: 50%;
+        box-shadow: 0 0 4px rgba(63, 182, 255, 0.6);
+      }
+  } 
+
+  .skills {
+    p {
+      color: $text-color; // ou outra cor desejada
+      font-family: $primary-font;
+      font-weight: 300;
+      margin: 0.3rem 0;
+      font-size: 1.5rem;
+    }
+  }
+  

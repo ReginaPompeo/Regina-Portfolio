@@ -1,18 +1,23 @@
 $primary-color: #14192d;
 $secondary-color: #9885ff;
 $tertiary-color: #f6f3f1;
+$accent-color: #e61fc0;
+$text-color: #3fb6ff;
+
+$primary-font: 'Public Sans', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;
 
 .containerHero {
     position: relative;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 3rem;
-    gap: 5rem;
+    gap: 3rem;
   }
   
   .backgroundVideo {
@@ -27,10 +32,35 @@ $tertiary-color: #f6f3f1;
   
  .title{
   color: $tertiary-color;
-  font-size: 2rem;
+  font-size: 3.5rem;
+  font-family: $secondary-font;
+  font-weight: 500;
  } 
+
 .subtitle{
   text-align: center;
-  padding: 3rem;
+  padding: 0 5rem;
   color: $tertiary-color;
+  font-family: $primary-font;
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+.buttonContainer{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.setaIcone{
+  max-width: 100px;
+  max-height: 100px;
+}
+
+@media (max-width: 548px) {
+  .title{
+    font-size: 2rem;
+    text-align: center;
+  }
 }

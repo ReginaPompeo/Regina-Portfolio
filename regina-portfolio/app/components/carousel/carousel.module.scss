@@ -1,0 +1,197 @@
+$primary-color: #14192d;
+$secondary-color: #9885ff;
+$tertiary-color: #3fb6ff;
+$accent-color: #e61fc0;
+$text-color: #f6f3f1;
+
+$primary-font: 'Public Sans', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;
+
+.carousel {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+  
+    .carousel__prev,
+    .carousel__next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      font-size: 3rem;
+      color: $accent-color;
+      cursor: pointer;
+      z-index: 2;
+  
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  
+    .carousel__prev {
+      left: -3rem;
+    }
+  
+    .carousel__next {
+      right: -3rem;
+    }
+  
+    .card {
+      background-color: #d4ccff;
+      border-radius: 16px;
+      padding: 1rem;
+      width: 320px;
+      height: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      transition: transform 0.3s ease, scale 0.3s ease;
+      opacity: 0.9;
+  
+      &__active {
+        transform: scale(1.1);
+        z-index: 1;
+        opacity: 1;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+        background-color: $secondary-color;
+
+        &:hover {
+            transform: scale(1.2); // cresce mais quando passa o mouse
+          }
+      }
+  
+      &__image {
+        width: 280px;
+        height: 280px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
+  
+      &__title {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+        font-weight: 600;
+        font-family: $secondary-font;
+        color: $accent-color;
+      }
+  
+      &__description {
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+        color: $text-color;
+        font-family: $primary-font;
+        text-align: center;
+      }
+  
+      &__techs {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+  
+      &__badge {
+        background-color: $tertiary-color;
+        color: $primary-color;
+        padding: 0.3rem 0.6rem;
+        border-radius: 999px;
+        font-size: 0.8rem;
+        font-family: $primary-font;
+      }
+    }
+  }
+  
+  .modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  .modal {
+    background: $primary-color;
+    color: $text-color;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    height: 80%;
+  }
+  
+  .modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    color: $accent-color;
+    cursor: pointer;
+  }
+  
+  .modal__image {
+    width: 350px;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  
+  .modal__title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: $accent-color;
+    font-family: $secondary-font;
+  }
+  
+  .modal__description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-family: $primary-font;
+  }
+  
+  .modal__techs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+
+    .card__badge{
+        background-color: $text-color;
+        color:blueviolet;
+        font-size: 1rem;
+        font-weight: 600;
+    }
+  }
+  
+  .modal__link {
+    display: inline-block;
+    margin-top: 1rem;
+    background-color: $tertiary-color;
+    color: $text-color;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+  
+    &:hover {
+      background-color: $accent-color;
+      color: white;
+    }
+  }
+  

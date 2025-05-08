@@ -1,0 +1,88 @@
+$primary-color: #14192d;
+$secondary-color: #9885ff;
+$tertiary-color: #3fb6ff;
+$accent-color: #e61fc0;
+$text-color: #f6f3f1;
+
+$primary-font: 'Public Sans', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;
+
+.containerAboutJourney{
+    min-height: calc(100vh - 90px);
+    background-image: url('/background/background-about-journey.svg');
+    background-size: cover;            // Faz a imagem preencher o container
+    background-repeat: no-repeat;      // Impede que a imagem se repita
+    background-position: center top;   // Alinha a imagem no topo e centraliza
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+}
+
+.subtitle{
+    color: $primary-color;
+    font-family: $primary-font;
+    text-transform: uppercase; // deixa tudo em maiúsculo
+    letter-spacing: 0.1rem;
+    font-weight: 100;
+}
+
+.title{
+    color: $primary-color;
+    font-family: $secondary-font;
+    font-weight: 400;
+    font-size: 2.5rem;
+}
+
+.centerContainer{
+    display: flex;
+    flex-direction:row;
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.imageContainer {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profileImage {
+    border-radius: 1%;
+    object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    max-width: 100%;
+    height: auto;
+  }
+
+.text{
+    color: $primary-color;
+    font-family: $primary-font;
+    text-align: justify;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    width: 50%;
+}
+
+.bottomContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 1000px) {
+    .centerContainer{
+        display: flex;
+        flex-direction: column;
+    }
+    
+}

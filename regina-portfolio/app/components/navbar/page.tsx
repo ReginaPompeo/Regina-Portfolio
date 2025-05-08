@@ -46,8 +46,8 @@ const navbarClass = `${styles.navbar} ${scrolled ? styles.scrolled : ''}`;
           <button className={styles.closeBtn} onClick={handleCloseMenu}>❌</button>
           <nav className={styles.mobileNavLinks}>
             <a href="#home" onClick={handleCloseMenu}>Home</a>
-            <Link href="/sobre" onClick={handleCloseMenu}>Sobre</Link>
-            <Link href="/servicos" onClick={handleCloseMenu}>Serviços</Link>
+            <a href="#carreira" onClick={handleCloseMenu}>Carreira</a>
+            <a href="#sobre" onClick={handleCloseMenu}>Sobre</a>
             <a href="#team" onClick={handleCloseMenu}>Equipe</a>
             <a href="#contact" onClick={handleCloseMenu}>Contato</a>
           </nav>
@@ -57,8 +57,8 @@ const navbarClass = `${styles.navbar} ${scrolled ? styles.scrolled : ''}`;
       {/* Links visíveis apenas em telas grandes */}
       <div className={styles.navLinks}>
         <a href="#home">Home</a>
-        <Link href="/sobre">Sobre</Link>
-        <Link href="/servicos">Serviços</Link>
+        <a href="#carreira">Carreira</a>
+        <a href="#sobre">Sobre</a>
         <a href="#team">Equipe</a>
         <a href="#contact">Contato</a>
       </div>

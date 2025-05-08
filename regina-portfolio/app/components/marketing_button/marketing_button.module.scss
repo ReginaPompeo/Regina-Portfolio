@@ -1,29 +1,38 @@
-$primary-color: #14192d; // cor escura para o fundo da tela
-$secondary-color: #9885ff; // verde claro
-$tertiary-color: #f6f3f1; // branco
+$primary-color: #14192d;
+$secondary-color: #9885ff;
+$tertiary-color: #f6f3f1;
 
-$primary-font: 'DM Sans', sans-serif;
-$secondary-font: 'Roboto', sans-serif;
+$primary-font: 'Public Sans', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;
 
 .button {
-    background-color: $secondary-color;
-    padding: 5px 15px;
+    background: linear-gradient(135deg, $secondary-color, #e61fc0);
+    padding: 10px 50px;
     border: none;
-    border-radius: 20px;
+    border-radius: 100px;
     cursor: pointer;
-    transition: background 0.4s ease-in-out;
-    color: $primary-color;
-    width: 80%;
-    font: $secondary-font;
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    font-weight: bold;
+    transition: all 0.4s ease-in-out;
+    color: $tertiary-color;
+    width: auto;
+    font-family: $primary-font;
+    font-size: clamp(1.5rem, 2vw, 1.5rem);
+    font-weight: 600;
     max-height: 3rem;
-    border: 3.5px solid transparent;
-
-    
+    border: 0px solid transparent;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  
     &:hover {
-        background-color: $primary-color;
-        color: $tertiary-color;
-        border-color: $secondary-color;
+      background: #3fb6ff;
+      color: $primary-color;
+      border-color: #e61fc0;
+      box-shadow: 0 0 20px rgba(152, 133, 255, 0.6), 0 0 40px rgba(230, 31, 192, 0.5);
     }
-}
+  }
+  
+@media (max-width: 548px) {
+    .button{
+        font-size: 1.2rem;
+        width: 100%;
+        max-height: 5rem;
+    }    
+}  

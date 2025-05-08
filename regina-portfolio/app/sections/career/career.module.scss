@@ -1,4 +1,90 @@
-.containerCareer{
-    height: 100vh;
-    background-color: aqua;
+$primary-color: #14192d;
+$secondary-color: #9885ff;
+$tertiary-color: #3fb6ff;
+$accent-color: #e61fc0;
+$text-color: #f6f3f1;
+
+$primary-font: 'Public Sans', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;
+
+.containerCareer {
+  min-height: calc(100vh - 90px);
+  background-image: url('/background/background-career.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.topContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.subtitle {
+  color: $text-color;
+  font-family: $primary-font;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-weight: 100;
+  font-size: 1rem;;
+}
+
+.title {
+  color: $text-color;
+  font-family: $secondary-font;
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.centerContainer {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 2rem;
+}
+
+.text {
+  color: $text-color;
+  font-family: $primary-font;
+  text-align: justify;
+  font-size: 1.5rem;
+  width: 50%;
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); // sombra sutil
+}
+
+.imageContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileImage {
+  border-radius: 10%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 100%;
+  height: auto;
+}
+
+.textImage {
+  color: $text-color;
+  font-family: $primary-font;
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  padding: 0 5rem;
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
