@@ -23,7 +23,7 @@ $secondary-font: 'Montserrat', sans-serif;
   color: white;
   padding: 30px 80px 30px 100px; // mais alto e largo
   border-radius: 0 50px 0 50px;
-  font-size: 1.5rem; // aumenta o texto
+  font-size: clamp(1rem, 2vw,1.5rem); // aumenta o texto
   font-weight: bold;
   font-family: $secondary-font;
   text-decoration: none;

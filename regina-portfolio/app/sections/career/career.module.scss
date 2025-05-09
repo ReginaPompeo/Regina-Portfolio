@@ -39,20 +39,20 @@ $secondary-font: 'Montserrat', sans-serif;
   color: $text-color;
   font-family: $secondary-font;
   font-weight: 500;
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
 }
 
 .centerContainer {
   display: flex;
   flex-direction: row-reverse;
-  gap: 2rem;
+  gap: clamp(1rem, 2vw, 2rem);
 }
 
 .text {
   color: $text-color;
   font-family: $primary-font;
   text-align: justify;
-  font-size: 1.5rem;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
   width: 50%;
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); // sombra sutil
 }
@@ -83,8 +83,24 @@ $secondary-font: 'Montserrat', sans-serif;
   color: $text-color;
   font-family: $primary-font;
   text-align: center;
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 1vw, 1.2rem);
   margin-top: 1rem;
-  padding: 0 5rem;
+  padding: 0 clamp(1rem, 5vw, 5rem);
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+  .centerContainer{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1.5rem;
+  }
+  
+  .text, .imageContainer{
+    width: 100%;
+  }
+
+  .textImage{
+    font-size: 0.9rem;
+  }
 }

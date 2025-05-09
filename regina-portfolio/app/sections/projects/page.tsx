@@ -6,8 +6,10 @@ const Career: React.FC = () => {
     return(
         <div className={styles.containerProjects}>
             <div className={styles.topContainer}>
+                <div className={styles.titleWrapper}>
                 <div className={styles.title}> <h1>Projetos em destaque</h1> </div>
                 <div className={styles.gradientBar}></div>
+                </div>
                 <div className={styles.subtitle}> <h2>Aqui estão alguns dos projetos 
                     que desenvolvi — alguns pessoais, outros feitos para clientes ou estudos. 
                     Todos com código aberto no GitHub.</h2> </div>

@@ -36,21 +36,27 @@ $secondary-font: 'Montserrat', sans-serif;
     font-size: 0.5rem;;
   }
   
-  .gradientBar {
-    width: 50%;
-    height: 8px;
-    margin:  0;
-    border-radius: 4px;
-    display: flex;
-    justify-content: left;
-    background: linear-gradient(90deg, #3fb6ff, #c835d4, #e61fc0);
+  .titleWrapper {
+    display: inline-flex; // garante que vai abraçar apenas o conteúdo
+    flex-direction: column;
+    align-items: flex-start;
+    width: fit-content;
   }
   
   .title {
     color: $primary-color;
     font-family: $secondary-font;
     font-weight: 500;
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    width: fit-content;
+  }
+  
+  .gradientBar {
+    height: 8px;
+    margin-top: 4px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #3fb6ff, #c835d4, #e61fc0);
+    width: 100%; // agora respeita o tamanho exato da titleWrapper
   }
 
 .centerCarousel{

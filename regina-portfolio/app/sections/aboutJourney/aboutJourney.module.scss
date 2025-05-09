@@ -24,13 +24,14 @@ $secondary-font: 'Montserrat', sans-serif;
     text-transform: uppercase; // deixa tudo em maiúsculo
     letter-spacing: 0.1rem;
     font-weight: 100;
+    font-size: 1rem;
 }
 
 .title{
     color: $primary-color;
     font-family: $secondary-font;
     font-weight: 400;
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 2vw, 2.5rem);
 }
 
 .centerContainer{
@@ -40,6 +41,13 @@ $secondary-font: 'Montserrat', sans-serif;
     padding: 1rem 0;
 }
 
+.textContainer {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
 .imageContainer {
     width: 50%;
     display: flex;
@@ -52,6 +60,7 @@ $secondary-font: 'Montserrat', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #e61fc0;
   }
   
   .profileImage {
@@ -62,15 +71,16 @@ $secondary-font: 'Montserrat', sans-serif;
     height: auto;
   }
 
-.text{
+  .text {
     color: $primary-color;
     font-family: $primary-font;
     text-align: justify;
     display: flex;
     align-items: center;
-    font-size: 1.5rem;
-    width: 50%;
-}
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    margin-top: 1rem;
+  }
+  
 
 .bottomContainer{
     display: flex;
@@ -79,10 +89,18 @@ $secondary-font: 'Montserrat', sans-serif;
     align-items: center;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
     .centerContainer{
         display: flex;
         flex-direction: column;
+
+        .textContainer{
+            width: 100%;
+        }
+
+        .imageContainer{
+            width: 100%;
+        }
     }
     
 }

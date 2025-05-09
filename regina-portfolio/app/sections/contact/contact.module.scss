@@ -7,7 +7,7 @@ $text-color: #f6f3f1;
 $primary-font: 'Public Sans', sans-serif;
 $secondary-font: 'Montserrat', sans-serif;
 
-.containerStacks {
+.containerContact {
     min-height: calc(100vh - 90px);
     background-image: url('/background/background-contact.svg');
     background-size: cover;
@@ -19,11 +19,12 @@ $secondary-font: 'Montserrat', sans-serif;
     position: relative;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
   }
   
   .topContainer {
-    position: absolute;
+    align-self: flex-end;
+    position: relative;
     top: 2rem;
     right: 2rem;
     display: flex;
@@ -48,3 +49,8 @@ $secondary-font: 'Montserrat', sans-serif;
     width: 100%;
   }
   
+  .form{
+    max-height: 40%;
+    max-width: 50%;
+    margin-top: 2rem;
+  }
