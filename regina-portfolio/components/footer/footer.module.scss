@@ -1,0 +1,119 @@
+$primary-color: #14192d;
+$secondary-color: #9885ff;
+$tertiary-color: #3fb6ff;
+$accent-color: #e61fc0;
+$text-color: #f6f3f1;
+
+$primary-font: 'Public Sans', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;
+
+.footer {
+    height: calc(100vh - 90px);
+    background-image: url('/background/background-footer.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    padding: 4rem 3rem;
+
+  &__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    //background-color: aqua;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 3rem);
+    flex-direction: column;
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: center;
+    height: 50%;
+    gap: 1.5rem;
+    width: 50%;
+    //background-color: blue;
+    padding: 2rem;
+    flex-direction: row;
+
+    a {
+      color: $text-color;
+      display: flex;
+      font-size: 1.5rem;
+      transition: transform 0.3s;
+      background-color: $accent-color;
+      width: auto;
+      height: auto;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      border-radius: 9999px;
+      flex-direction: row;
+
+      &:hover {
+        transform: scale(1.1);
+        background-color: $tertiary-color;
+      }
+    }
+  }
+
+  &__bottom {
+    font-size: 1rem;
+    //background-color: chocolate;
+    font-family: $primary-font;
+    color: $text-color;
+  }
+
+  &__scrollTop {
+    position: relative;
+    background-color: $tertiary-color;
+    color: $text-color;
+    border: none;
+    border-radius: 9999px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: auto;
+    padding: 1rem;
+
+    &:hover {
+      background-color: $accent-color;
+      transform: scale(1.1);
+    }
+  }
+}
+
+  .footerTop{   
+    //background-color: #e61fc0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    height: 60%;
+  }
+
+  .scrollContainer{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 50%;
+    background-color: rgb(115, 255, 0);
+    padding: 2rem;
+    flex-direction: column;    
+    gap: 1rem;
+  }
+
+
+.titleScroll,
+.titleIcons{
+    font-size: clamp(1rem, 2vw, 2rem);
+    font-family: $secondary-font;
+    height: 50%;
+
+}

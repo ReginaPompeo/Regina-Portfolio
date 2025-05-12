@@ -1,11 +1,12 @@
 import styles from "./page.module.css";
 import Hero from "../app/sections/hero/page";
-import Navbar from './components/navbar/page';
+import Navbar from '../components/navbar/navbar';
 import AboutJourney from '../app/sections/aboutJourney/page';
 import Career from '../app/sections/career/page';
 import Projects from '../app/sections/projects/page';
 import Stacks from '../app/sections/stacks/page';
 import Contact from '../app/sections/contact/page';
+import Footer from '../components/footer/footer';
 
 export default function Home() {
   return (
@@ -29,6 +30,7 @@ export default function Home() {
       <div id="contato">
         <Contact />
       </div>
+      <Footer />
     </div>
   );
 }

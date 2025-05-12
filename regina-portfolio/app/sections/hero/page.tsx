@@ -1,7 +1,7 @@
 "use client";
 
 import styles from '../hero/hero.module.scss';
-import MarketingButton from '../../components/marketing_button/page';
+import MarketingButton from '../../../components/marketing_button/marketing_button';
 
 const Hero: React.FC = () => {
   

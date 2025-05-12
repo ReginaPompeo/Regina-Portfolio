@@ -16,25 +16,26 @@ $secondary-font: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: clamp(1rem, 5vw, 5rem);
+    padding: clamp(1rem, 3vw, 3rem);
     gap: 5rem;
     position: relative; 
   
 }
 
 .bottomContainer {
-    position: absolute;
-    bottom: 2rem;
-    right: 2rem;
+    bottom: clamp(3rem, 5vw, 5rem);
+    right: clamp(2rem, 8vw, 8rem);
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    justify-content:flex-end;
+    align-items: flex-start;
+     width: fit-content; 
     gap: 0.5rem; // adiciona espaçamento entre título e barra
   
     .title {
       font-family: $secondary-font;
       color: $text-color;
-      font-size: 2rem;
+      font-size: clamp(1.7rem, 2vw, 2rem);
       font-weight: 500;
       text-align: right;
       width: fit-content; // garante que só ocupe o tamanho do texto
@@ -44,14 +45,15 @@ $secondary-font: 'Montserrat', sans-serif;
         height: 8px;
         width: 100%; // agora herda a largura do título
         border-radius: 4px;
+
         background: linear-gradient(90deg, #3fb6ff, #c835d4, #e61fc0);
       }
   }
   
   .typesWrapper {
-    margin-top: 3rem;
+    margin-top: clamp(1rem, 3vw, 3rem);
     display: flex;
-    gap: 2.5rem; // espaço entre os typeContainer
+    gap: clamp(1.5rem, 3vw, 3rem); // espaço entre os typeContainer
     flex-wrap: wrap; // para responsividade
     justify-content: flex-start;
   }
@@ -61,7 +63,6 @@ $secondary-font: 'Montserrat', sans-serif;
     flex-direction: column;
     width: clamp(250px, 30%, 350px);
     height: 400px;
-    background-color: black;
     
   }
   .titleContainer{
@@ -71,7 +72,7 @@ $secondary-font: 'Montserrat', sans-serif;
     color: $text-color;
     text-transform: uppercase; // deixa tudo em maiúsculo
     letter-spacing: 0.1rem;
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 1vw, 1.7rem);
   }
   .line {
     width: auto;
@@ -103,5 +104,74 @@ $secondary-font: 'Montserrat', sans-serif;
       margin: 0.3rem 0;
       font-size: 1.5rem;
     }
+  }
+
+@media (max-width: 910px) {
+  .containerStacks {
+    flex-direction: column;  // Garante que os itens vão ficar em coluna
+    justify-content: flex-start; // Acomoda os itens no topo
+    gap: 2.5rem; // Ajusta o espaçamento entre os itens
+  }
+
+  .bottomContainer {
+  bottom: clamp(3rem, 5vw, 5rem);
+  right: clamp(2rem, 8vw, 8rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  justify-content: right;
+
+  .title {
+    font-family: $secondary-font;
+    color: $text-color;
+    font-size: clamp(1.7rem, 2vw, 2rem);
+    font-weight: 500;
+    text-align: right;
+    display: inline-block; // <- Essencial para que ocupe só o tamanho do texto
+  }
+
+  .gradientBar {
+    height: 8px;
+    width: 100%; // <- herda do tamanho da title, se estiver junto no fluxo
+    max-width: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #3fb6ff, #c835d4, #e61fc0);
+  }
+}
+  
+  .typesWrapper {
+    order: 1;  // Garante que o wrapper vai para baixo
+    margin-top: 0;
+  }
+  }
+  
+
+
+  @media (max-width: 648px) {
+  .containerStacks {
+    flex-direction: column;  // Garante que os itens vão ficar em coluna
+    gap: 1.5rem;
+  }
+
+  .bottomContainer {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .typesWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 90%;
+  }
+
+  .typeContainer {
+    width: 100%; /* Isso ajusta a largura para 100% */
+    max-width: 350px; /* Limite máximo para os itens */
+    margin: 1rem 0;
+    height: auto;
+  }
   }
   

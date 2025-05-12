@@ -19,23 +19,25 @@ $secondary-font: 'Montserrat', sans-serif;
     position: relative;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: clamp(1.5rem, 8vw, 8rem);
   }
   
   .topContainer {
     align-self: flex-end;
     position: relative;
     top: 2rem;
-    right: 2rem;
+    right: clamp(1rem, 3vw, 3rem);
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    background-color: blue;
+    max-width: 80%;
   }
   
   .title {
     font-family: $secondary-font;
     color: $primary-color;
-    font-size: 2rem;
+    font-size: clamp(1.75rem, 2vw, 2rem);
     font-weight: 500;
     text-align: right;
     width: fit-content;
@@ -51,6 +53,18 @@ $secondary-font: 'Montserrat', sans-serif;
   
   .form{
     max-height: 40%;
-    max-width: 50%;
-    margin-top: 2rem;
+    width: 70%;
+    margin-top: clamp(1rem, 1vw, 2rem);
   }
+
+ @media (max-width: 950px) {
+    .form{
+    width: 85%;
+  }
+} 
+
+ @media (max-width: 590px) {
+    .form{
+    width: 100%;
+  }
+} 

@@ -1,6 +1,6 @@
 import styles from '../aboutJourney/aboutJourney.module.scss';
-import Timeline from '../../components/timeline/page';
-import DownloadCVButton from '../../components/cv_button/page';
+import Timeline from '../../../components/timeline/timeline';
+import DownloadCVButton from '../../../components/cv_button/cv_button';
 import Image from 'next/image';
 
 const AboutJourney: React.FC = () => {

@@ -1,6 +1,6 @@
 import styles from '../projects/projects.module.scss';
 import Image from 'next/image';
-import Carousel from '../../components/carousel/page';
+import Carousel from '../../../components/carousel/carousel';
 
 const Career: React.FC = () => {
     return(
