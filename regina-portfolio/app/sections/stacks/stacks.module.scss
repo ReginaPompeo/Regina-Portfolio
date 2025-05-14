@@ -8,170 +8,134 @@ $primary-font: 'Public Sans', sans-serif;
 $secondary-font: 'Montserrat', sans-serif;
 
 .containerStacks {
-    min-height: calc(100vh - 90px);
-    background-image: url('/background/background-stacks.svg');
-    background-size: cover;            // Faz a imagem preencher o container
-    background-repeat: no-repeat;      // Impede que a imagem se repita
-    background-position: center top;   // Alinha a imagem no topo e centraliza
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: clamp(1rem, 3vw, 3rem);
-    gap: 5rem;
-    position: relative; 
-  
+  min-height: calc(100vh - 90px);
+  background-image: url('/background/background-stacks.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: clamp(2rem, 3vw, 3rem);
+  gap: 5rem;
 }
 
-.bottomContainer {
-    bottom: clamp(3rem, 5vw, 5rem);
-    right: clamp(2rem, 8vw, 8rem);
-    display: flex;
-    flex-direction: column;
-    justify-content:flex-end;
-    align-items: flex-start;
-     width: fit-content; 
-    gap: 0.5rem; // adiciona espaçamento entre título e barra
-  
-    .title {
-      font-family: $secondary-font;
-      color: $text-color;
-      font-size: clamp(1.7rem, 2vw, 2rem);
-      font-weight: 500;
-      text-align: right;
-      width: fit-content; // garante que só ocupe o tamanho do texto
-    }
-  
-    .gradientBar {
-        height: 8px;
-        width: 100%; // agora herda a largura do título
-        border-radius: 4px;
-
-        background: linear-gradient(90deg, #3fb6ff, #c835d4, #e61fc0);
-      }
-  }
-  
-  .typesWrapper {
-    margin-top: clamp(1rem, 3vw, 3rem);
-    display: flex;
-    gap: clamp(1.5rem, 3vw, 3rem); // espaço entre os typeContainer
-    flex-wrap: wrap; // para responsividade
-    justify-content: flex-start;
-  }
-  
-  .typeContainer{
-    display: flex;
-    flex-direction: column;
-    width: clamp(250px, 30%, 350px);
-    height: 400px;
-    
-  }
-  .titleContainer{
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    color: $text-color;
-    text-transform: uppercase; // deixa tudo em maiúsculo
-    letter-spacing: 0.1rem;
-    font-size: clamp(1rem, 1vw, 1.7rem);
-  }
-  .line {
-    width: auto;
-    height: 4px;
-    margin: 16px 0;
-    border-radius: 4px;
-    background: $text-color;
-    position: relative;
-
-    &::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        right: 0;
-        transform: translate(50%, -50%);
-        width: 18px;
-        height: 18px;
-        background: linear-gradient(90deg, #3fb6ff, #c835d4, #e61fc0);
-        border-radius: 50%;
-        box-shadow: 0 0 4px rgba(63, 182, 255, 0.6);
-      }
-  } 
-
-  .skills {
-    p {
-      color: $text-color; // ou outra cor desejada
-      font-family: $primary-font;
-      font-weight: 300;
-      margin: 0.3rem 0;
-      font-size: 1.5rem;
-    }
-  }
-
-@media (max-width: 910px) {
-  .containerStacks {
-    flex-direction: column;  // Garante que os itens vão ficar em coluna
-    justify-content: flex-start; // Acomoda os itens no topo
-    gap: 2.5rem; // Ajusta o espaçamento entre os itens
-  }
-
-  .bottomContainer {
-  bottom: clamp(3rem, 5vw, 5rem);
-  right: clamp(2rem, 8vw, 8rem);
+.topContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 0.5rem;
-  justify-content: right;
+  gap: 0.3rem;
 
   .title {
     font-family: $secondary-font;
     color: $text-color;
     font-size: clamp(1.7rem, 2vw, 2rem);
     font-weight: 500;
-    text-align: right;
-    display: inline-block; // <- Essencial para que ocupe só o tamanho do texto
-  }
+    text-align: left;
+    width: fit-content;
+    position: relative;
 
-  .gradientBar {
-    height: 8px;
-    width: 100%; // <- herda do tamanho da title, se estiver junto no fluxo
-    max-width: 100%;
-    border-radius: 4px;
-    background: linear-gradient(90deg, #3fb6ff, #c835d4, #e61fc0);
+    &::after {
+      content: "";
+      display: block;
+      height: 8px;
+      margin-top: 0.3rem;
+      border-radius: 4px;
+      background: linear-gradient(90deg, #3fb6ff, #c835d4, #e61fc0);
+      width: 100%;
+    }
   }
 }
-  
+
+.typesWrapper {
+  display: flex;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.typeContainer {
+  display: flex;
+  flex-direction: column;
+  width: clamp(250px, 30%, 350px);
+  height: auto;
+  margin: 1rem;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  color: $text-color;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  font-size: clamp(1rem, 1vw, 1.7rem);
+}
+
+.line {
+  width: auto;
+  height: 4px;
+  margin: 16px 0;
+  border-radius: 4px;
+  background: $text-color;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+    width: 18px;
+    height: 18px;
+    background: linear-gradient(90deg, #3fb6ff, #c835d4, #e61fc0);
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(63, 182, 255, 0.6);
+  }
+}
+
+.skills {
+  p {
+    color: $text-color;
+    font-family: $primary-font;
+    font-weight: 300;
+    margin: 0.6rem 0;
+    font-size: 1.5rem;
+  }
+}
+
+// MEDIA QUERIES
+
+@media (max-width: 910px) {
+  .containerStacks {
+    gap: 2.5rem;
+  }
+
   .typesWrapper {
-    order: 1;  // Garante que o wrapper vai para baixo
+    order: 1;
     margin-top: 0;
   }
-  }
-  
+}
 
+@media (max-width: 648px) {
+  .topContainer {
+    align-items: flex-start; // move o título para o lado direito
 
-  @media (max-width: 648px) {
-  .containerStacks {
-    flex-direction: column;  // Garante que os itens vão ficar em coluna
-    gap: 1.5rem;
-  }
-
-  .bottomContainer {
-    bottom: 1rem;
-    right: 1rem;
+    .title {
+      text-align: left;
+    }
   }
 
   .typesWrapper {
-    display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0;
     width: 90%;
   }
 
   .typeContainer {
-    width: 100%; /* Isso ajusta a largura para 100% */
-    max-width: 350px; /* Limite máximo para os itens */
+    width: 100%;
+    max-width: 350px;
     margin: 1rem 0;
     height: auto;
   }
-  }
-  
+}

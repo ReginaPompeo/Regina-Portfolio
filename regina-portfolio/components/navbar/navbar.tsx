@@ -4,26 +4,34 @@ import React, { useState, useEffect } from 'react';
 import styles from './navbar.module.scss';
 import Image from 'next/image';
 import Logo from '../../public/icon/logo-rp.svg';
-import Link from 'next/link';
 
 const Navbar: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [scrolled, setScrolled] = useState(false);
 
   const handleCloseMenu = (): void => setMenuOpen(false);
 
-  const [scrolled, setScrolled] = useState(false);
+  // Scroll para adicionar classe quando passa de 300px
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 300);
+    };
 
-useEffect(() => {
-  const handleScroll = () => {
-    setScrolled(window.scrollY > 300);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navbarClass = `${styles.navbar} ${scrolled ? styles.scrolled : ''}`;
+
+  // Função para rolar até a seção com offset de 90px
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const yOffset = -89; // altura da navbar
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
   };
-
-  window.addEventListener('scroll', handleScroll);
-  return () => window.removeEventListener('scroll', handleScroll);
-}, []);
-
-const navbarClass = `${styles.navbar} ${scrolled ? styles.scrolled : ''}`;
-
 
   return (
     <div className={navbarClass}>
@@ -31,7 +39,7 @@ const navbarClass = `${styles.navbar} ${scrolled ? styles.scrolled : ''}`;
         <Image src={Logo} alt="Logo" className={styles.logo} />
       </div>
 
-      {/* HAMBURGUER: visível só quando menu está fechado */}
+      {/* HAMBURGER */}
       {!menuOpen && (
         <div className={styles.hamburger} onClick={() => setMenuOpen(true)}>
           <div className={styles.line}></div>
@@ -40,29 +48,29 @@ const navbarClass = `${styles.navbar} ${scrolled ? styles.scrolled : ''}`;
         </div>
       )}
 
-      {/* MENU MOBILE: visível só se aberto */}
+      {/* MENU MOBILE */}
       {menuOpen && (
         <div className={styles.mobileMenu}>
           <button className={styles.closeBtn} onClick={handleCloseMenu}>❌</button>
           <nav className={styles.mobileNavLinks}>
-            <a href="#home" onClick={handleCloseMenu}>Home</a>
-            <a href="#carreira" onClick={handleCloseMenu}>Carreira</a>
-            <a href="#sobre" onClick={handleCloseMenu}>Sobre</a>
-            <a href="#projetos" onClick={handleCloseMenu}>Projetos</a>
-            <a href="#skills" onClick={handleCloseMenu}>Skills</a>
-            <a href="#contato" onClick={handleCloseMenu}>Contato</a>            
+            <a onClick={() => { scrollToSection('home'); handleCloseMenu(); }}>Home</a>
+            <a onClick={() => { scrollToSection('carreira'); handleCloseMenu(); }}>Carreira</a>
+            <a onClick={() => { scrollToSection('sobre'); handleCloseMenu(); }}>Sobre</a>
+            <a onClick={() => { scrollToSection('projetos'); handleCloseMenu(); }}>Projetos</a>
+            <a onClick={() => { scrollToSection('skills'); handleCloseMenu(); }}>Skills</a>
+            <a onClick={() => { scrollToSection('contato'); handleCloseMenu(); }}>Contato</a>
           </nav>
         </div>
       )}
 
-      {/* Links visíveis apenas em telas grandes */}
+      {/* MENU DESKTOP */}
       <div className={styles.navLinks}>
-        <a href="#home">Home</a>
-        <a href="#carreira">Carreira</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#skills">Skills</a>
-        <a href="#contato">Contato</a>        
+        <a onClick={() => scrollToSection('home')}>Home</a>
+        <a onClick={() => scrollToSection('carreira')}>Carreira</a>
+        <a onClick={() => scrollToSection('sobre')}>Sobre</a>
+        <a onClick={() => scrollToSection('projetos')}>Projetos</a>
+        <a onClick={() => scrollToSection('skills')}>Skills</a>
+        <a onClick={() => scrollToSection('contato')}>Contato</a>
       </div>
     </div>
   );
