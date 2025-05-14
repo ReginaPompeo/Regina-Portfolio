@@ -30,21 +30,29 @@ const Career: React.FC = () => {
 
       <div className={styles.centerContainer}>
         {/* Texto vindo da direita */}
-        <motion.div
-          className={styles.text}
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          Sou uma mulher criativa, comunicativa e apaixonada por desafios.
-          Desde que entrei no universo da tecnologia, busco sempre unir técnica com originalidade — porque pra mim, programar também é uma forma de criar.
-          <br />
-          Tenho facilidade em me comunicar com pessoas técnicas e não técnicas, o que me ajuda a entender a real necessidade de cada projeto. Não gosto de fazer por fazer: gosto de entender, planejar e construir com propósito.
-          <br />
-          Adoro aprender, experimentar e transformar ideias em soluções que realmente funcionam. E sim, acredito que um bom código pode mudar uma rotina inteira.
-          <br />
-          Hoje, além do meu trabalho como assistente de dados, desenvolvo sites, sistemas e automações para empresas que querem se digitalizar com inteligência — e sem complicação.
-        </motion.div>
+<motion.div
+  className={styles.text}
+  initial={{ opacity: 0, x: 50 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.6, delay: 0.4 }}
+>
+  <p>
+    Sou uma mulher criativa, comunicativa e apaixonada por desafios. Desde que entrei no universo da tecnologia, busco sempre unir técnica com originalidade — porque pra mim, programar também é uma forma de criar.
+  </p>
+
+  <p>
+    Tenho facilidade em me comunicar com pessoas técnicas e não técnicas, o que me ajuda a entender a real necessidade de cada projeto. Não gosto de fazer por fazer: gosto de entender, planejar e construir com propósito.
+  </p>
+
+  <p>
+    Adoro aprender, experimentar e transformar ideias em soluções que realmente funcionam. E sim, acredito que um bom código pode mudar uma rotina inteira.
+  </p>
+
+  <p>
+    Hoje, além do meu trabalho como assistente de dados, desenvolvo sites, sistemas e automações para empresas que querem se digitalizar com inteligência — e sem complicação.
+  </p>
+</motion.div>
+
 
         {/* Imagem vindo da esquerda */}
         <div className={styles.imageContainer}>
@@ -57,8 +65,8 @@ const Career: React.FC = () => {
             <Image
               src="/image/profile-image.jpeg"
               alt="Regina Pompeo em ambiente de trabalho"
-              width={350}
-              height={350}
+              width={400}
+              height={400}
               className={styles.profileImage}
             />
           </motion.div>

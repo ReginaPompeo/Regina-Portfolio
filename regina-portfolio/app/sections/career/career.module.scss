@@ -16,7 +16,8 @@ $secondary-font: 'Montserrat', sans-serif;
   padding: 3rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: clamp(2rem, 5vw, 5rem);
+  justify-content: center;
 }
 
 .topContainer {
@@ -54,8 +55,14 @@ $secondary-font: 'Montserrat', sans-serif;
   text-align: justify;
   font-size: clamp(1.2rem, 2vw, 1.5rem);
   width: 50%;
-  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5); // sombra sutil
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+
+  p {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
 }
+
 
 .imageContainer {
   width: 50%;
@@ -63,12 +70,16 @@ $secondary-font: 'Montserrat', sans-serif;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex: 1;
 }
 
 .image {
   display: flex;
   justify-content: center;
   align-items: center;
+  //background-color: #9885ff;
+  width: 100%;
+  height: auto;
 }
 
 .profileImage {
@@ -96,8 +107,12 @@ $secondary-font: 'Montserrat', sans-serif;
     gap: 1.5rem;
   }
   
+  .title, .subtitle{
+    text-align: center;
+  }
   .text, .imageContainer{
     width: 100%;
+  
   }
 
   .textImage{

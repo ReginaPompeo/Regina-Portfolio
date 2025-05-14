@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+
 import styles from '../aboutJourney/aboutJourney.module.scss';
 import Timeline from '../../../components/timeline/timeline';
 import DownloadCVButton from '../../../components/cv_button/cv_button';

@@ -91,4 +91,11 @@ $secondary-font: 'Montserrat', sans-serif;
   .button:hover{
     transform: scale(1.05);
   }
+
+@media (max-width: 648px) { 
+  .inputRow{
+    display: flex;
+    flex-direction: column;
+  }
+} 
   

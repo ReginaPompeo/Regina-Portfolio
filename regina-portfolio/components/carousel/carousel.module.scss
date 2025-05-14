@@ -13,7 +13,7 @@ $secondary-font: 'Montserrat', sans-serif;
     justify-content: center;
     align-items: center;
     gap: clamp(1.5rem, 2vw, 2rem);
-    padding: clamp(1rem, 2vw, 2rem);
+    padding: clamp(1.5rem, 2vw, 2rem);
   
     .carousel__prev,
     .carousel__next {
@@ -204,11 +204,6 @@ $secondary-font: 'Montserrat', sans-serif;
       color: white;
     }
   }
-
-    @media (max-width: 890px) {
-      
-
-    }
   
   @media (max-width: 890px) {
     .carousel {
@@ -258,8 +253,12 @@ $secondary-font: 'Montserrat', sans-serif;
           justify-content: center;
           display: flex !important;
           z-index: 5;
-        }
+
+        &:hover {
+            transform: scale(1.15); // cresce mais quando passa o mouse
+          }
       }  
+    }
 
     .carousel__prev,
     .carousel__next {
@@ -278,12 +277,10 @@ $secondary-font: 'Montserrat', sans-serif;
     }
     .carousel__prev {
       left: -3rem;
-      right: auto;
     }
 
     .carousel__next {
     right: -3rem;
-    left: auto;
     }
   }
 
@@ -291,4 +288,72 @@ $secondary-font: 'Montserrat', sans-serif;
     width: 70%;
     height: 40%;
   }
-  }  
+  }
+  
+    @media (max-width: 600px) {
+    .carousel {
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+      -webkit-overflow-scrolling: touch;
+      display: flex;
+      padding: 1rem;
+  
+      .card {
+        display: none;
+        height: 500px;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        border-radius: 16px;
+  
+        &__image {
+          width: 80%;
+          height: 60%;
+        }
+
+        &__title,
+        &__description,
+        &__techs {
+          text-align: center;
+        }
+        &__title {
+        font-size: clamp(1.5rem, 2vw, 2.5rem);
+      }
+  
+      &__description {
+        font-size: clamp(1.3rem, 2vw, 2rem);
+      }
+  
+      &__badge {
+        font-size: clamp(1.3rem, 2vw, 1.5rem);
+      }
+
+        &__active {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          display: flex !important;
+          z-index: 5;
+
+        &:hover {
+            transform: scale(1.15); // cresce mais quando passa o mouse
+          }
+      }  
+    }
+  }
+    .carousel__prev,
+    .carousel__next {
+
+    .carousel__prev {
+      left: -1.5rem;
+    }
+
+    .carousel__next {
+    right: -1.5rem;
+    }
+  }
+  }

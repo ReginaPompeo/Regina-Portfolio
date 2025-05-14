@@ -3,6 +3,7 @@
 import { useRef, FormEvent } from 'react';
 import emailjs from '@emailjs/browser';
 import styles from './form.module.scss';
+import { motion } from 'framer-motion';
 
 export default function ContactForm() {
   const form = useRef<HTMLFormElement>(null);
@@ -50,22 +51,30 @@ export default function ContactForm() {
   };
 
   return (
-    <form ref={form} onSubmit={sendEmail} className={styles.form}>
-         <div className={styles.inputRow}>
-      <input
-        type="text"
-        name="name"
-        placeholder="Nome"
-        required
-        className={styles.input}
-      />
-      <input
-        type="email"
-        name="email"
-        placeholder="Email"
-        required
-        className={styles.input}
-      />
+    <motion.form
+      ref={form}
+      onSubmit={sendEmail}
+      className={styles.form}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      viewport={{ once: false, amount: 0.3 }}
+    >
+      <div className={styles.inputRow}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Nome"
+          required
+          className={styles.input}
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email"
+          required
+          className={styles.input}
+        />
       </div>
       <textarea
         name="message"
@@ -76,6 +85,6 @@ export default function ContactForm() {
       <button type="submit" className={styles.button}>
         Enviar
       </button>
-    </form>
+    </motion.form>
   );
 }

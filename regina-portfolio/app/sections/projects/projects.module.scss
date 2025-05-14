@@ -16,7 +16,8 @@ $secondary-font: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;
     padding: 3rem;
-    gap:5rem;
+    gap: clamp(5rem, 8vw, 8rem);
+    justify-content: center;
 }
 
 .topContainer {

@@ -3,18 +3,31 @@
 import styles from '../projects/projects.module.scss';
 import Image from 'next/image';
 import Carousel from '../../../components/carousel/carousel';
-import { motion } from 'framer-motion';  // Importando o framer-motion
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useEffect } from 'react';
 
 const Project: React.FC = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({ threshold: 0.3 });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({ opacity: 1, y: 0 });
+    } else {
+      controls.start({ opacity: 0, y: 100 }); // "reseta" para reaparecer
+    }
+  }, [inView, controls]);
+
   return (
     <div className={styles.containerProjects}>
       <div className={styles.topContainer}>
-        {/* Título com fade-in */}
         <motion.div
           className={styles.titleWrapper}
-          initial={{ opacity: 0 }} // Inicializa com opacidade 0
-          whileInView={{ opacity: 1 }} // Anima para opacidade 1 quando o elemento entra na vista
-          transition={{ duration: 0.6, delay: 0.6 }} // Duração e atraso
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          viewport={{ once: false }}
         >
           <div className={styles.title}>
             <h1>Projetos em destaque</h1>
@@ -22,12 +35,12 @@ const Project: React.FC = () => {
           <div className={styles.gradientBar}></div>
         </motion.div>
 
-        {/* Subtítulo com fade-in */}
         <motion.div
           className={styles.subtitle}
-          initial={{ opacity: 0 }} // Inicializa com opacidade 0
-          whileInView={{ opacity: 1 }} // Anima para opacidade 1 quando o elemento entra na vista
-          transition={{ duration: 0.6, delay: 1 }} // Duração e atraso para subtítulo
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1 }}
+          viewport={{ once: false }}
         >
           <h2>
             Aqui estão alguns dos projetos que desenvolvi — alguns pessoais, outros feitos para clientes ou estudos.
@@ -36,12 +49,13 @@ const Project: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Carousel com fade-in */}
+      {/* 👇 Aqui é onde a mágica acontece */}
       <motion.div
+        ref={ref}
         className={styles.centerCarousel}
-        initial={{ opacity: 0 }} // Inicializa com opacidade 0
-        whileInView={{ opacity: 1 }} // Anima para opacidade 1 quando o elemento entra na vista
-        transition={{ duration: 0.6, delay: 1.6 }} // Duração e atraso para o carousel
+        initial={{ opacity: 0, y: 100 }}
+        animate={controls}
+        transition={{ duration: 0.6 }}
       >
         <Carousel />
       </motion.div>
