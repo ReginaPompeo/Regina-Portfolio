@@ -1,3 +1,4 @@
+// Variáveis
 $primary-color: #14192d;
 $secondary-color: #9885ff;
 $tertiary-color: #f6f3f1;
@@ -7,71 +8,113 @@ $text-color: #3fb6ff;
 $primary-font: 'Public Sans', sans-serif;
 $secondary-font: 'Montserrat', sans-serif;
 
+// Container principal
 .containerHero {
-    position: relative;
-    width: 100vw;
-    min-height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: clamp(1rem, 3vw, 3rem);
-    gap: clamp(0.5rem, 5vw, 5rem);
-  }
-  
-  .backgroundVideo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
-  
- .title{
-  color: $tertiary-color;
-  font-size: clamp(1.5rem, 3vw, 3.5rem);
-  font-family: $secondary-font;
-  font-weight: 500;
-  text-align: center;
-  //ackground-color: blueviolet;
- } 
-
-.subtitle{
-  text-align: center;
-  padding: 0 clamp(0.5rem, 5vw, 5rem);
-  color: $tertiary-color;
-  font-family: $primary-font;
-  font-size: 1rem;
-  font-weight: 100;
-  //background-color: cadetblue;
-}
-
-.buttonContainer{
-  width: 100%;
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: clamp(0.5rem, 1vw, 1rem);
+  flex-direction: column;
+  padding: clamp(1rem, 3vw, 3rem);
+  gap: clamp(1rem, 4vw, 4rem);
+  text-align: center;
+  background-color: $primary-color; // fallback se vídeo falhar
+  z-index: 0;
+}
+
+// Vídeo de fundo
+.backgroundVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+// Overlay escuro por cima do vídeo
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 25, 45, 0.7); // tom escuro com transparência
+  z-index: -1;
+}
+
+// Container dos textos
+.headerTexts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+// Título principal
+.title {
+  color: $tertiary-color;
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-family: $secondary-font;
+  font-weight: 600;
+}
+
+// Subtítulos
+.subtitle {
+  color: $tertiary-color;
+  font-family: $primary-font;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: 300;
+  padding: 0 1rem;
+}
+
+// Botão de marketing
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+// Botão de rolagem com ícone
+.scrollButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.setaIcone {
+  max-width: 64px;
   height: auto;
-  //background-color: bisque;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(5px);
+  }
 }
 
-.setaIcone{
-  //background-color: aqua;
-  max-width: 100px;
-  //max-height: 100px;
-}
-
+// Responsivo
 @media (max-width: 648px) {
-  .containerHero{
+  .containerHero {
     padding-top: 81px;
   }
 
-  .title{
+  .title {
     font-size: 2rem;
-    text-align: center;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .setaIcone {
+    max-width: 48px;
   }
 }

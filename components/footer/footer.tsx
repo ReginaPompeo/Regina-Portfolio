@@ -1,22 +1,32 @@
 'use client';
 
-import { FaLinkedin, FaWhatsapp, FaArrowCircleUp, FaGithub } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
-import styles from "./footer.module.scss";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import { useInView } from 'react-intersection-observer';
+import { useEffect, useState } from 'react';
+import { FaLinkedin, FaWhatsapp, FaArrowCircleUp, FaGithub } from 'react-icons/fa';
+import { MdEmail } from 'react-icons/md';
+import styles from './footer.module.scss';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const [showBackground, setShowBackground] = useState(false);
+
+  useEffect(() => {
+    if (inView) setShowBackground(true);
+  }, [inView]);
+
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
     <motion.footer
-      className={styles.footer}
+      ref={ref}
+      className={`${styles.footer} ${showBackground ? styles.lazyBackground : ''}`}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
       viewport={{ once: false, amount: 0.3 }}
     >
       <div className={styles.footer__content}>
@@ -94,7 +104,7 @@ const Footer = () => {
         <div className={styles.logoContainer}>
           <div style={{ position: 'relative', width: '100px', height: '100px' }}>
             <Image
-  src="/icon/logo-rp.svg"
+  src="/icon/horizontal-logo.svg"
   alt="Logo"
   width={100}
   height={100}

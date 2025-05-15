@@ -3,29 +3,25 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-import styles from '../aboutJourney/aboutJourney.module.scss';
+import styles from './aboutJourney.module.scss';
 import Timeline from '../../../components/timeline/timeline';
 import DownloadCVButton from '../../../components/cv_button/cv_button';
 
 const AboutJourney: React.FC = () => {
   return (
-    <div className={styles.containerAboutJourney}>
-      <div className={styles.centerContainer}>
-        {/* Seção de Texto com efeito de fade-in */}
+    <section className={styles.container}>
+      <div className={styles.inner}>
+        {/* Texto */}
         <motion.div
-          className={styles.textContainer}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
-          viewport={{ once: false, amount: 0.3 }}
+          className={styles.text}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          viewport={{ once: true, amount: 0.4 }}
         >
-          <div className={styles.subtitle}>
-            <h2>Uma trajetória feita com</h2>
-          </div>
-          <div className={styles.title}>
-            <h1>Tecnologia</h1>
-          </div>
-          <div className={styles.text}>
+          <p className={styles.subtitle}>Uma trajetória feita com</p>
+          <h2 className={styles.title}>Tecnologia</h2>
+          <div className={styles.paragraphs}>
             <p>Minha jornada na tecnologia começou com curiosidade e rapidamente se transformou em paixão.</p>
             <p>Sou formada em Análise e Desenvolvimento de Sistemas (2024) e atualmente curso Engenharia de Software, sempre em busca de evolução.</p>
             <p>Sou desenvolvedora front-end e assistente de dados, atuando em projetos que combinam tecnologia, criatividade e performance.</p>
@@ -34,36 +30,31 @@ const AboutJourney: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Seção de Imagem com efeito de fade-in */}
+        {/* Imagem */}
         <motion.div
-          className={styles.imageContainer}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 1, ease: 'easeOut' }}
-          viewport={{ once: false, amount: 0.3 }}
+          className={styles.imageWrapper}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+          viewport={{ once: true, amount: 0.4 }}
         >
-          <div className={styles.image}>
-            <div className={styles.imageWrapper}>
-              <Image
-                src="/image/graduate-image.jpg"
-                alt="Regina Pompeo em sua formatura"
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                style={{ objectFit: 'contain' }}
-                className={styles.profileImage}
-                priority // caso queira carregar a imagem logo que possível
-              />
-            </div>
-          </div>
+          <Image
+            src="/image/graduate-image.jpg"
+            alt="Regina Pompeo em sua formatura"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            style={{ objectFit: 'cover' }}
+            className={styles.profile}
+          />
         </motion.div>
       </div>
 
-      {/* Seção do BottomContainer sem animação */}
-      <div className={styles.bottomContainer}>
+      {/* Timeline e CV */}
+      <div className={styles.bottom}>
         <Timeline />
         <DownloadCVButton />
       </div>
-    </div>
+    </section>
   );
 };
 

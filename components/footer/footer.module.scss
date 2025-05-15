@@ -23,16 +23,20 @@ $secondary-font: 'Montserrat', sans-serif;
   }
 }
 
+.lazyBackground {
+  background-image: url('/background/background-footer.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+}
+
+
 .footer {
   padding: 3rem 1.5rem;
   display: flex;
   margin-top: auto;
   flex-direction: column;
   justify-content: center;
-  background-image: url('/background/background-footer.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center top;
 
   &__content {
     width: 100%;

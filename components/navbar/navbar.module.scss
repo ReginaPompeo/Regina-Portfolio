@@ -15,11 +15,13 @@ $tertiary-color: #f6f3f1; // branco
   z-index: 1000;
   height: 90px;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
 
-.scrolled {
-  background-color: $primary-color;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    &.scrolled {
+          background-color: red !important;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(6px); // opcional: efeito de vidro
+  }
+
 }
 
 .logoContainer {

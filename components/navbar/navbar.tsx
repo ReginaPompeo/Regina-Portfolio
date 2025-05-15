@@ -12,14 +12,17 @@ const Navbar: React.FC = () => {
   const handleCloseMenu = (): void => setMenuOpen(false);
 
   // Scroll para adicionar classe quando passa de 300px
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 300);
-    };
+useEffect(() => {
+  const handleScroll = () => {
+    const isScrolled = window.scrollY > 200;
+    console.log('scrollY:', window.scrollY, 'scrolled:', isScrolled);
+    setScrolled(isScrolled);
+  };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
+
 
   const navbarClass = `${styles.navbar} ${scrolled ? styles.scrolled : ''}`;
 

@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+     "analyze": "ANALYZE=true next build"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -22,6 +23,7 @@
     "sass": "^1.87.0"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^15.3.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

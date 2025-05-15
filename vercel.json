@@ -1,3 +1,5 @@
 {
-  "rootDirectory": "regina-portfolio"
+  "buildCommand": "next build",
+  "outputDirectory": ".next",
+  "framework": "nextjs"
 }
