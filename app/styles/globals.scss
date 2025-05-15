@@ -1,0 +1,63 @@
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  /* declare aqui outras variáveis, se quiser */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+    font-family: 'Public Sans', sans-serif;
+  font-weight: 300; /* leve ajuste para melhor legibilidade */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+@font-face {
+  font-family: 'Public Sans';
+  src: url('/fonts/PublicSans.woff2') format('woff2');
+  font-display: swap;
+}
