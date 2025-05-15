@@ -7,6 +7,22 @@ $text-color: #f6f3f1;
 $primary-font: 'Public Sans', sans-serif;
 $secondary-font: 'Montserrat', sans-serif;
 
+@mixin circle-button($bg-color) {
+  background-color: $bg-color;
+  border-radius: 50%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: $secondary-color;
+    color: $text-color;
+  }
+}
+
 .footer {
   min-height: calc(100vh - 90px);
   background-image: url('/background/background-footer.svg');
@@ -37,6 +53,10 @@ $secondary-font: 'Montserrat', sans-serif;
     color: $text-color;
     text-align: center;
     font-weight: 200;
+
+    @media (max-width: 648px) {
+      font-weight: 400; // para melhor leitura no mobile
+    }
     //background-color: brown;
   }
 
@@ -56,7 +76,7 @@ $secondary-font: 'Montserrat', sans-serif;
   }
 }
 
-.footerTop {
+.footer__top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -74,6 +94,11 @@ $secondary-font: 'Montserrat', sans-serif;
   gap: 1.5rem;
   justify-content: space-between;
   //background-color: #9885ff;
+
+  @media (max-width: 648px) {
+    justify-content: center;
+    width: 100%;
+  }
 }
 
 .titleIcons,
@@ -91,46 +116,26 @@ $secondary-font: 'Montserrat', sans-serif;
 }
 
 .iconCircle {
-  background-color: $accent-color;
-  border-radius: 50%;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.3s;
+  @include circle-button($accent-color);
 
   a {
     color: $text-color;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
   }
 
-  &:hover {
-    transform: scale(1.1);
-    background-color: $secondary-color;
+  &:hover a {
     color: $text-color;
   }
 }
 
 .scrollCircle {
-  background-color: $tertiary-color;
-  border-radius: 50%;
-  padding: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.3s;
-
-  &:hover {
-    transform: scale(1.1);
-    background-color: $secondary-color;
-    color: $text-color;
-  }
+  @include circle-button($tertiary-color);
 }
 
-.contacts{
+.contacts {
   //background-color: #3fb6ff;
   text-align: center;
   color: $text-color;
@@ -158,15 +163,8 @@ $secondary-font: 'Montserrat', sans-serif;
 
 
 @media (max-width: 648px) {
-  .footerTop {
-    display: flex;
+  .footer__top {
     flex-direction: column;
     gap: 2rem;
-  }  
-
-  .footer__half{
-    display: flex;
-    justify-content: center;
-    width: 100%;
   }
-} 
+}

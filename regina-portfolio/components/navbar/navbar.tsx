@@ -35,9 +35,19 @@ const Navbar: React.FC = () => {
 
   return (
     <div className={navbarClass}>
-      <div className={styles.logoContainer}>
-        <Image src={Logo} alt="Logo" className={styles.logo} />
-      </div>
+      <a
+  href="#home"
+  className={styles.logoContainer}
+  onClick={(e) => {
+    e.preventDefault();
+    scrollToSection('home');
+  }}
+  style={{ cursor: 'pointer' }}
+>
+  <Image src={Logo} alt="Logo" className={styles.logo} priority />
+</a>
+
+
 
       {/* HAMBURGER */}
       {!menuOpen && (

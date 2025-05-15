@@ -29,6 +29,8 @@ const Hero: React.FC = () => {
         loop
         muted
         playsInline
+        aria-hidden="true"   // <-- adicione isso
+        tabIndex={-1} 
       >
         <source src="/background/background-hero.mp4" type="video/mp4"/>
         Seu navegador não suporta vídeos .webm
@@ -52,17 +54,27 @@ const Hero: React.FC = () => {
         />
       </div>
 
-      <div onClick={handleScroll} style={{ cursor: "pointer" }}>
-        <video
-          className={styles.setaIcone}
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          <source src="/icon/seta-icon.webm" type="video/webm" />
-        </video>
-      </div>
+      <button
+  onClick={handleScroll}
+  aria-label="Ir para a seção de carreira"
+  className={styles.scrollButton}
+  style={{ background: "none", border: "none", padding: 0, cursor: "pointer" }}
+>
+  <video
+    className={styles.setaIcone}
+    autoPlay
+    loop
+    muted
+    playsInline
+    aria-hidden="true"
+    tabIndex={-1}
+  >
+    <source src="/icon/seta-icon.webm" type="video/webm" />
+  </video>
+</button>
+
+
+
     </motion.div>
   );
 };

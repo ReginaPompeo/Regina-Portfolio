@@ -7,102 +7,113 @@ $text-color: #f6f3f1;
 $primary-font: 'Public Sans', sans-serif;
 $secondary-font: 'Montserrat', sans-serif;
 
-.containerAboutJourney{
-    min-height: calc(100vh - 90px);
-    background-image: url('/background/background-about-journey.svg');
-    background-size: cover;            // Faz a imagem preencher o container
-    background-repeat: no-repeat;      // Impede que a imagem se repita
-    background-position: center top;   // Alinha a imagem no topo e centraliza
-    display: flex;
-    flex-direction: column;
-    padding: 3rem;
-    justify-content: center;
+.containerAboutJourney {
+  min-height: calc(100vh - 90px);
+  background-image: url('/background/background-about-journey.svg');
+  background-size: cover;          // Faz a imagem preencher o container
+  background-repeat: no-repeat;    // Impede que a imagem se repita
+  background-position: center top; // Alinha a imagem no topo e centraliza
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
+  justify-content: center;
 }
 
-.subtitle{
-    color: $primary-color;
-    font-family: $primary-font;
-    text-transform: uppercase; // deixa tudo em maiúsculo
-    letter-spacing: 0.1rem;
-    font-weight: 100;
-    font-size: clamp(0.8rem, 1vw, 1rem);
+.subtitle {
+  color: $primary-color;
+  font-family: $primary-font;
+  text-transform: uppercase; // deixa tudo em maiúsculo
+  letter-spacing: 0.1rem;
+  font-weight: 100;
+  font-size: clamp(0.8rem, 1vw, 1rem);
 }
 
-.title{
-    color: $primary-color;
-    font-family: $secondary-font;
-    font-weight: 400;
-    font-size: clamp(1rem, 2vw, 2.5rem);
+.title {
+  color: $primary-color;
+  font-family: $secondary-font;
+  font-weight: 400;
+  font-size: clamp(1rem, 2vw, 2.5rem);
 }
 
-.centerContainer{
-    display: flex;
-    flex-direction:row;
-    gap: 1.5rem;
-    padding: 1rem 0;
+.centerContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  padding: 1rem 0;
 }
 
 .textContainer {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .imageContainer {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #e61fc0;
-  }
-  
-  .profileImage {
-    border-radius: 1%;
-    object-fit: cover;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    max-width: 100%;
-    height: auto;
-  }
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  .text {
-    color: $primary-color;
-    font-family: $primary-font;
-    text-align: justify;
-    display: flex;
-    align-items: center;
-    font-size: clamp(1.2rem, 2vw, 1.5rem);
-    margin-top: 1rem;
-  }
-  
+.image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $accent-color;
+  border-radius: 0.5rem;  // pode dar um arredondado sutil, fica bonito
+  padding: 0.5rem;        // espaçamento interno para destacar a imagem
+}
 
-.bottomContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
+.imageWrapper {
+  position: relative;
+  width: 300px;
+  aspect-ratio: 3 / 4;
+}
+
+.profileImage {
+  border-radius: 1%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.text {
+  color: $primary-color;
+  font-family: $primary-font;
+  text-align: justify;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  margin-top: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.bottomContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 @media (max-width: 768px) {
-    .centerContainer{
-        display: flex;
-        flex-direction: column;
+  .centerContainer {
+    flex-direction: column;
 
-        .textContainer{
-            width: 100%;
-        }
-
-        .imageContainer{
-            width: 100%;
-        }
+    .textContainer,
+    .imageContainer {
+      width: 100%;
     }
     
+    .image {
+      background-color: transparent; // opcional para mobile
+      padding: 0;                     // remover padding no mobile para ganhar espaço
+    }
+  }
 }
