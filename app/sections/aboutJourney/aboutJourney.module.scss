@@ -7,6 +7,10 @@ $text-color: #f6f3f1;
 $primary-font: 'Public Sans', sans-serif;
 $secondary-font: 'Montserrat', sans-serif;
 
+#carreira {
+  scroll-margin-top: 90px;
+}
+
 .containerAboutJourney {
   min-height: calc(100vh - 90px);
   background-image: url('/background/background-about-journey.svg');
@@ -17,6 +21,7 @@ $secondary-font: 'Montserrat', sans-serif;
   flex-direction: column;
   padding: 3rem;
   justify-content: center;
+  scroll-margin-top: 90px;
 }
 
 .subtitle {
@@ -24,15 +29,15 @@ $secondary-font: 'Montserrat', sans-serif;
   font-family: $primary-font;
   text-transform: uppercase; // deixa tudo em maiúsculo
   letter-spacing: 0.1rem;
-  font-weight: 100;
-  font-size: clamp(0.8rem, 1vw, 1rem);
+  font-weight: 300;
+  font-size: clamp(1rem, 2vw, 2rem);
 }
 
 .title {
-  color: $primary-color;
+  color: $accent-color;
   font-family: $secondary-font;
-  font-weight: 400;
-  font-size: clamp(1rem, 2vw, 2.5rem);
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 5rem);
 }
 
 .centerContainer {
@@ -47,6 +52,7 @@ $secondary-font: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 0.5rem;
 }
 
 .imageContainer {
@@ -65,21 +71,24 @@ $secondary-font: 'Montserrat', sans-serif;
   border-radius: 0.5rem;  // pode dar um arredondado sutil, fica bonito
   padding: 0.5rem;        // espaçamento interno para destacar a imagem
 }
-
 .imageWrapper {
-  position: relative;
-  width: 300px;
-  aspect-ratio: 3 / 4;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.profileImage {
+
+.profile {
   border-radius: 1%;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  max-width: 100%;
+  width: 100%;
   height: auto;
   display: block;
 }
+
 
 .text {
   color: $primary-color;
@@ -100,20 +109,24 @@ $secondary-font: 'Montserrat', sans-serif;
   justify-content: center;
   align-items: center;
   gap: 1rem;
+  padding-bottom: 1rem;
 }
-
 @media (max-width: 768px) {
+  .containerAboutJourney{
+      padding: clamp(1rem, 3vw, 3rem);
+  }
   .centerContainer {
     flex-direction: column;
-
-    .textContainer,
-    .imageContainer {
-      width: 100%;
-    }
-    
-    .image {
-      background-color: transparent; // opcional para mobile
-      padding: 0;                     // remover padding no mobile para ganhar espaço
-    }
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
   }
+
+  .textContainer,
+  .imageContainer {
+    width: 90%;
+  }
+
 }
+
+

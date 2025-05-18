@@ -13,7 +13,7 @@ $secondary-font: 'Montserrat', sans-serif;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
-  padding: 3rem;
+  padding: clamp(1rem, 3vw, 3rem);
   display: flex;
   flex-direction: column;
   gap: clamp(2rem, 5vw, 5rem);
@@ -40,7 +40,7 @@ $secondary-font: 'Montserrat', sans-serif;
   color: $text-color;
   font-family: $secondary-font;
   font-weight: 500;
-  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-size: clamp(1rem, 2vw, 2rem);
 }
 
 .centerContainer {
@@ -101,6 +101,10 @@ $secondary-font: 'Montserrat', sans-serif;
 }
 
 @media (max-width: 768px) {
+  .topContainer{
+    margin-top: 0.5rem;
+  }
+  
   .centerContainer{
     display: flex;
     flex-direction: column-reverse;
@@ -114,7 +118,6 @@ $secondary-font: 'Montserrat', sans-serif;
     width: 100%;
   
   }
-
   .textImage{
     font-size: 0.9rem;
   }

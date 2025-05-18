@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 const Contact: React.FC = () => {
     return (
-        <div className={styles.containerContact}>
+        <div id="contato" className={styles.containerContact}>
             <motion.div
                 className={styles.topContainer}
                 initial={{ opacity: 0 }}

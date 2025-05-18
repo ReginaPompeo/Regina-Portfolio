@@ -9,11 +9,12 @@ import DownloadCVButton from '../../../components/cv_button/cv_button';
 
 const AboutJourney: React.FC = () => {
   return (
-    <section className={styles.container}>
-      <div className={styles.inner}>
+    <section id="carreira" className={styles.containerAboutJourney}>
+      {/* Container central com texto + imagem */}
+      <div className={styles.centerContainer}>
         {/* Texto */}
         <motion.div
-          className={styles.text}
+          className={styles.textContainer}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -21,7 +22,7 @@ const AboutJourney: React.FC = () => {
         >
           <p className={styles.subtitle}>Uma trajetória feita com</p>
           <h2 className={styles.title}>Tecnologia</h2>
-          <div className={styles.paragraphs}>
+          <div className={styles.text}>
             <p>Minha jornada na tecnologia começou com curiosidade e rapidamente se transformou em paixão.</p>
             <p>Sou formada em Análise e Desenvolvimento de Sistemas (2024) e atualmente curso Engenharia de Software, sempre em busca de evolução.</p>
             <p>Sou desenvolvedora front-end e assistente de dados, atuando em projetos que combinam tecnologia, criatividade e performance.</p>
@@ -32,25 +33,31 @@ const AboutJourney: React.FC = () => {
 
         {/* Imagem */}
         <motion.div
-          className={styles.imageWrapper}
+          className={styles.imageContainer}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
           viewport={{ once: true, amount: 0.4 }}
         >
-          <Image
-            src="/image/graduate-image.jpg"
-            alt="Regina Pompeo em sua formatura"
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            style={{ objectFit: 'cover' }}
-            className={styles.profile}
-          />
+          <div className={styles.image}>
+            <div className={styles.imageWrapper}>
+              <Image
+  src="/image/graduate-image.jpg"
+  alt="Regina Pompeo em sua formatura"
+  width={400}
+  height={533}
+  className={styles.profile}
+  style={{ objectFit: 'cover' }}
+  loading="lazy"
+/>
+
+            </div>
+          </div>
         </motion.div>
       </div>
 
-      {/* Timeline e CV */}
-      <div className={styles.bottom}>
+      {/* Linha do tempo e botão de CV */}
+      <div className={styles.bottomContainer}>
         <Timeline />
         <DownloadCVButton />
       </div>

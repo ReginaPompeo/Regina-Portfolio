@@ -37,7 +37,7 @@ $secondary-font: 'Montserrat', sans-serif;
   .title {
     font-family: $secondary-font;
     color: $primary-color;
-    font-size: clamp(1.75rem, 2vw, 2rem);
+    font-size: clamp(1.5rem, 2vw, 2rem);
     font-weight: 500;
     text-align: right;
     width: fit-content;
@@ -68,3 +68,9 @@ $secondary-font: 'Montserrat', sans-serif;
     width: 100%;
   }
 } 
+
+ @media (max-width: 375px) { 
+    .topContainer{
+      align-items: center;
+    }
+}

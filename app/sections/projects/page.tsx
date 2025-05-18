@@ -20,7 +20,7 @@ const Project: React.FC = () => {
   }, [inView, controls]);
 
   return (
-    <div className={styles.containerProjects}>
+    <div id="projetos" className={styles.containerProjects}>
       <div className={styles.topContainer}>
         <motion.div
           className={styles.titleWrapper}

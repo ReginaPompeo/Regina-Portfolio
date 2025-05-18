@@ -3,75 +3,118 @@
 import styles from '../stacks/stacks.module.scss';
 import Icon from '@mdi/react';
 import { mdiStarFourPoints } from '@mdi/js';
-import { motion } from 'framer-motion';  // Importando o framer-motion
+import { motion } from 'framer-motion';
 
-interface stackData {
-  image: string;
-  title: string;
+interface StackData {
+  titleSkill: string;
   techs: string[];
-  description: string;
 }
 
-const stackData = [
+const stackData: StackData[] = [
   {
     titleSkill: "Front-End",
-    icon: <Icon path={mdiStarFourPoints} size={1.5} color="#3fb6ff" />,
-    techs: ["-  React", "-  Next.js", " -  Sass", "-  TypeScript"],
+    techs: [
+      "HTML5",
+      "CSS3",
+      "Sass",
+      "Tailwind",
+      "Bootstrap",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Angular",
+    ],
   },
   {
     titleSkill: "Back-End",
-    icon: <Icon path={mdiStarFourPoints} size={1.5} color="#3fb6ff" />,
-    techs: ["-  Node.js", "-  Express", "-  PostgreSQL"],
+    techs: [
+      "Node.js",
+      "Express",
+      "Python",
+      "Java",
+      "C#",
+      ".NET",
+      "Spring Boot",
+    ],
+  },
+  {
+    titleSkill: "Bancos de Dados",
+    techs: [
+      "Oracle",
+      "MySQL",
+      "PostgreSQL",
+      "SQL Server",
+    ],
   },
   {
     titleSkill: "Ferramentas",
-    icon: <Icon path={mdiStarFourPoints} size={1.5} color="#3fb6ff" />,
-    techs: ["-  Git", "-  Figma", "-  Vercel", "-  Jest"],
+    techs: [
+      "Git",
+      "GitHub",
+      "Docker",
+      "Postman",
+      "JUnit",
+      "Jest",
+      "Figma",
+      "Netlify",
+      "Vercel",
+    ],
+  },
+  {
+    titleSkill: "IDEs",
+    techs: [
+      "IntelliJ IDEA",
+      "VSCode",
+      "Visual Studio",
+      "Eclipse",
+    ],
+  },
+  {
+    titleSkill: "Idiomas",
+    techs: [
+      "Português (nativo)",
+      "Inglês (intermediário)",
+      "Espanhol (básico)",
+      "Alemão (básico)",
+    ],
   },
 ];
 
+const iconPath = mdiStarFourPoints;
+
 const Stacks: React.FC = () => {
   return (
-    <div className={styles.containerStacks}>
-      <div className={styles.topContainer}>
-        {/* Fade-in para o título */}
-        <motion.div
-          className={styles.title}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <h1>Skills</h1>
-        </motion.div>
+    <div id="skills" className={styles.containerStacks}>
+      <motion.div
+        className={styles.topContainer}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        <h1 className={styles.title}>Skills</h1>
         <div className={styles.gradientBar}></div>
-      </div>
+      </motion.div>
 
       <div className={styles.typesWrapper}>
         {stackData.map((stack, index) => (
           <motion.div
-            key={index}
+            key={stack.titleSkill}
             className={styles.typeContainer}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }} // Delay para os stacks aparecerem um de cada vez
+            transition={{ duration: 0.6, delay: index * 0.2 }}
           >
             <div className={styles.titleContainer}>
-              <span>{stack.icon}</span>
+              <span><Icon path={iconPath} size={1.5} color="#3fb6ff" /></span>
               <h2>{stack.titleSkill}</h2>
             </div>
             <div className={styles.line}></div>
-            <div className={styles.skills}>
-              {stack.techs.map((tech, index) => (
-                <motion.p
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.6 }} // Delay para as techs aparecerem depois
-                >
-                  {tech}
-                </motion.p>
+            <ul className={styles.skills}>
+              {stack.techs.map((tech) => (
+                <li key={tech}>{tech}</li>
               ))}
-            </div>
+            </ul>
           </motion.div>
         ))}
       </div>

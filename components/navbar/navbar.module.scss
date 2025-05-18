@@ -17,7 +17,7 @@ $tertiary-color: #f6f3f1; // branco
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 
     &.scrolled {
-          background-color: red !important;
+          background-color: $primary-color;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         backdrop-filter: blur(6px); // opcional: efeito de vidro
   }
@@ -66,12 +66,13 @@ $tertiary-color: #f6f3f1; // branco
     text-decoration: none;
     font-size: 1.2rem;
     position: relative;
+    display: inline-block;
 
     &::after {
       content: '';
       position: absolute;
       left: 0;
-      bottom: -2px;
+      bottom: 2px;
       width: 0%;
       height: 2px;
       background-color: #fff;

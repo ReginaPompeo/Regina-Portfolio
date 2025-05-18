@@ -3,34 +3,52 @@
 import React, { useState, useEffect } from 'react';
 import styles from './navbar.module.scss';
 import Image from 'next/image';
-import Logo from '../../public/icon/logo-rp.svg';
 
 const Navbar: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const handleCloseMenu = (): void => setMenuOpen(false);
+  const handleCloseMenu = () => setMenuOpen(false);
 
-  // Scroll para adicionar classe quando passa de 300px
-useEffect(() => {
-  const handleScroll = () => {
-    const isScrolled = window.scrollY > 200;
-    console.log('scrollY:', window.scrollY, 'scrolled:', isScrolled);
-    setScrolled(isScrolled);
-  };
+  useEffect(() => {
+    let observer: IntersectionObserver | null = null;
+    let retries = 0;
+    const maxRetries = 10;
 
-  window.addEventListener('scroll', handleScroll);
-  return () => window.removeEventListener('scroll', handleScroll);
-}, []);
+    const waitForHero = () => {
+      const heroSection = document.getElementById('hero');
+      if (heroSection) {
+        observer = new IntersectionObserver(
+          ([entry]) => {
+            setScrolled(!entry.isIntersecting);
+          },
+          {
+            root: null,
+            threshold: 0.1,
+          }
+        );
+        observer.observe(heroSection);
+      } else if (retries < maxRetries) {
+        retries++;
+        setTimeout(waitForHero, 300);
+      } else {
+        console.warn("Hero section não encontrada após várias tentativas");
+      }
+    };
 
+    waitForHero();
+
+    return () => {
+      if (observer) observer.disconnect();
+    };
+  }, []);
 
   const navbarClass = `${styles.navbar} ${scrolled ? styles.scrolled : ''}`;
 
-  // Função para rolar até a seção com offset de 90px
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      const yOffset = -89; // altura da navbar
+      const yOffset = -89;
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
@@ -39,20 +57,26 @@ useEffect(() => {
   return (
     <div className={navbarClass}>
       <a
-  href="#home"
-  className={styles.logoContainer}
-  onClick={(e) => {
-    e.preventDefault();
-    scrollToSection('home');
-  }}
-  style={{ cursor: 'pointer' }}
->
-  <Image src={Logo} alt="Logo" className={styles.logo} priority />
-</a>
+        href="#hero"
+        className={styles.logoContainer}
+        onClick={(e) => {
+          e.preventDefault();
+          scrollToSection('hero');
+        }}
+        style={{ cursor: 'pointer' }}
+      >
+                <Image 
+          src="/icon/horizontal-logo.svg" 
+          alt="Logo" 
+          className={styles.logo} 
+          priority 
+          width={150} 
+          height={50} 
+          style={{ objectFit: 'contain' }} 
+        />
 
+      </a>
 
-
-      {/* HAMBURGER */}
       {!menuOpen && (
         <div className={styles.hamburger} onClick={() => setMenuOpen(true)}>
           <div className={styles.line}></div>
@@ -61,29 +85,27 @@ useEffect(() => {
         </div>
       )}
 
-      {/* MENU MOBILE */}
       {menuOpen && (
         <div className={styles.mobileMenu}>
           <button className={styles.closeBtn} onClick={handleCloseMenu}>❌</button>
           <nav className={styles.mobileNavLinks}>
-            <a onClick={() => { scrollToSection('home'); handleCloseMenu(); }}>Home</a>
-            <a onClick={() => { scrollToSection('carreira'); handleCloseMenu(); }}>Carreira</a>
-            <a onClick={() => { scrollToSection('sobre'); handleCloseMenu(); }}>Sobre</a>
-            <a onClick={() => { scrollToSection('projetos'); handleCloseMenu(); }}>Projetos</a>
-            <a onClick={() => { scrollToSection('skills'); handleCloseMenu(); }}>Skills</a>
-            <a onClick={() => { scrollToSection('contato'); handleCloseMenu(); }}>Contato</a>
+            <a href="#hero" onClick={(e) => { e.preventDefault(); scrollToSection('hero'); handleCloseMenu(); }}>Home</a>
+            <a href="#carreira" onClick={(e) => { e.preventDefault(); scrollToSection('carreira'); handleCloseMenu(); }}>Carreira</a>
+            <a href="#sobre" onClick={(e) => { e.preventDefault(); scrollToSection('sobre'); handleCloseMenu(); }}>Sobre</a>
+            <a href="#projetos" onClick={(e) => { e.preventDefault(); scrollToSection('projetos'); handleCloseMenu(); }}>Projetos</a>
+            <a href="#skills" onClick={(e) => { e.preventDefault(); scrollToSection('skills'); handleCloseMenu(); }}>Skills</a>
+            <a href="#contato" onClick={(e) => { e.preventDefault(); scrollToSection('contato'); handleCloseMenu(); }}>Contato</a>
           </nav>
         </div>
       )}
 
-      {/* MENU DESKTOP */}
       <div className={styles.navLinks}>
-        <a onClick={() => scrollToSection('home')}>Home</a>
-        <a onClick={() => scrollToSection('carreira')}>Carreira</a>
-        <a onClick={() => scrollToSection('sobre')}>Sobre</a>
-        <a onClick={() => scrollToSection('projetos')}>Projetos</a>
-        <a onClick={() => scrollToSection('skills')}>Skills</a>
-        <a onClick={() => scrollToSection('contato')}>Contato</a>
+        <a href="#hero" onClick={(e) => { e.preventDefault(); scrollToSection('hero'); }}>Home</a>
+        <a href="#carreira" onClick={(e) => { e.preventDefault(); scrollToSection('carreira'); }}>Carreira</a>
+        <a href="#sobre" onClick={(e) => { e.preventDefault(); scrollToSection('sobre'); }}>Sobre</a>
+        <a href="#projetos" onClick={(e) => { e.preventDefault(); scrollToSection('projetos'); }}>Projetos</a>
+        <a href="#skills" onClick={(e) => { e.preventDefault(); scrollToSection('skills'); }}>Skills</a>
+        <a href="#contato" onClick={(e) => { e.preventDefault(); scrollToSection('contato'); }}>Contato</a>
       </div>
     </div>
   );

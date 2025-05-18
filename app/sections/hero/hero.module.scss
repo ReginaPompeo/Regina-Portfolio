@@ -19,10 +19,19 @@ $secondary-font: 'Montserrat', sans-serif;
   align-items: center;
   flex-direction: column;
   padding: clamp(1rem, 3vw, 3rem);
-  gap: clamp(1rem, 4vw, 4rem);
   text-align: center;
   background-color: $primary-color; // fallback se vídeo falhar
   z-index: 0;
+}
+
+// Conteúdo central (textos + botão)
+.heroContent {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1rem, 8vw, 8rem);
+  text-align: center;
 }
 
 // Vídeo de fundo
@@ -36,17 +45,6 @@ $secondary-font: 'Montserrat', sans-serif;
   z-index: -2;
 }
 
-// Overlay escuro por cima do vídeo
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(20, 25, 45, 0.7); // tom escuro com transparência
-  z-index: -1;
-}
-
 // Container dos textos
 .headerTexts {
   display: flex;
@@ -57,16 +55,16 @@ $secondary-font: 'Montserrat', sans-serif;
 // Título principal
 .title {
   color: $tertiary-color;
-  font-size: clamp(2rem, 6vw, 4rem);
+  font-size: clamp(2rem, 6vw, 6rem);
   font-family: $secondary-font;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 // Subtítulos
 .subtitle {
   color: $tertiary-color;
   font-family: $primary-font;
-  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(1rem, 2vw, 2rem);
   font-weight: 300;
   padding: 0 1rem;
 }
@@ -77,6 +75,15 @@ $secondary-font: 'Montserrat', sans-serif;
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
+}
+
+// Wrapper para a seta fixa no rodapé da section
+.scrollArrowWrapper {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
 }
 
 // Botão de rolagem com ícone
@@ -107,11 +114,11 @@ $secondary-font: 'Montserrat', sans-serif;
   }
 
   .title {
-    font-size: 2rem;
+    font-size: clamp(2rem, 3vw, 3rem);
   }
 
   .subtitle {
-    font-size: 1rem;
+    font-size: clamp(1.5rem, 2vw, 2rem);
   }
 
   .setaIcone {

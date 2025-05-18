@@ -102,22 +102,25 @@ const Footer = () => {
 
         {/* Logo */}
         <div className={styles.logoContainer}>
-          <div style={{ position: 'relative', width: '100px', height: '100px' }}>
-            <Image
-  src="/icon/horizontal-logo.svg"
-  alt="Logo"
-  width={100}
-  height={100}
-  style={{ objectFit: 'contain' }}
-/>
+<div style={{ position: 'relative', width: '400px', height: '80px' }}>
+  <Image
+    src="/icon/horizontal-logo.svg"
+    alt="Logo"
+    priority
+    fill
+    style={{ objectFit: 'contain' }}
+  />
 
           </div>
         </div>
 
         {/* Direitos autorais */}
-        <p className={styles.footer__bottom}>
+        <div className={styles.footer__bottom}>
+          <p>
           © 2025 Regina Pompeo. Todos os direitos reservados.
         </p>
+        <p>Desenvolvido por Regina Pompeo</p>
+      </div>
       </div>
     </motion.footer>
   );

@@ -66,3 +66,15 @@ $secondary-font: 'Montserrat', sans-serif;
   color: white;
   z-index: 1;
 }
+
+@media (max-width: 340px) {
+  .downloadButton {
+  padding: 25px 80px 25px 100px; // mais alto e largo
+}
+
+.iconWrapper {
+  left: -15px;
+  width: 90px;
+  height: 90px;
+}
+}

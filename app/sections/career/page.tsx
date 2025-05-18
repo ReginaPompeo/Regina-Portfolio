@@ -7,7 +7,7 @@ import styles from '../career/career.module.scss';
 
 const Career: React.FC = () => {
   return (
-    <div className={styles.containerCareer}>
+    <div id="sobre" className={styles.containerCareer}>
       <div className={styles.topContainer}>
         {/* Título e subtítulo com fade-in */}
         <motion.div
@@ -65,9 +65,10 @@ const Career: React.FC = () => {
             <Image
               src="/image/profile-image.jpeg"
               alt="Regina Pompeo em ambiente de trabalho"
-              width={400}
-              height={400}
+              width={500}
+              height={500}
               className={styles.profileImage}
+              loading="lazy"
             />
           </motion.div>
 

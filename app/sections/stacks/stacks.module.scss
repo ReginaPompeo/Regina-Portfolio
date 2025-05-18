@@ -16,7 +16,7 @@ $secondary-font: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: clamp(2rem, 3vw, 3rem);
+  padding: clamp(1rem, 3vw, 3rem);
   gap: 5rem;
 }
 
@@ -49,7 +49,7 @@ $secondary-font: 'Montserrat', sans-serif;
 
 .typesWrapper {
   display: flex;
-  gap: clamp(1.5rem, 3vw, 3rem);
+  gap: clamp(1rem, 3vw, 3rem);
   flex-wrap: wrap;
   justify-content: flex-start;
 }
@@ -57,7 +57,7 @@ $secondary-font: 'Montserrat', sans-serif;
 .typeContainer {
   display: flex;
   flex-direction: column;
-  width: clamp(250px, 30%, 350px);
+  width: clamp(250px, 30%, 300px);
   height: auto;
   margin: 1rem;
 }
