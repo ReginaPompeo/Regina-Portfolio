@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://regina-portfolio-rn5x8i0x2-regina-pompeos-projects.vercel.app
+
+# Sitemaps
+Sitemap: https://regina-portfolio-rn5x8i0x2-regina-pompeos-projects.vercel.app/sitemap.xml
