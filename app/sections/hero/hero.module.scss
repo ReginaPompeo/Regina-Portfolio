@@ -30,7 +30,7 @@ $secondary-font: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(1rem, 8vw, 8rem);
+  gap: clamp(1rem, 8vmin, 8rem);
   text-align: center;
 }
 
@@ -55,7 +55,7 @@ $secondary-font: 'Montserrat', sans-serif;
 // Título principal
 .title {
   color: $tertiary-color;
-  font-size: clamp(2rem, 6vw, 6rem);
+  font-size: clamp(2.5rem, 5vw, 6rem);
   font-family: $secondary-font;
   font-weight: 800;
 }
@@ -64,7 +64,7 @@ $secondary-font: 'Montserrat', sans-serif;
 .subtitle {
   color: $tertiary-color;
   font-family: $primary-font;
-  font-size: clamp(1rem, 2vw, 2rem);
+  font-size: clamp(1.25rem, 2.5vw, 2.5rem);
   font-weight: 300;
   padding: 0 1rem;
 }
@@ -123,5 +123,57 @@ $secondary-font: 'Montserrat', sans-serif;
 
   .setaIcone {
     max-width: 48px;
+  }
+}
+// Telas ultra largas (4K/5K)
+@media (min-width: 3000px) {
+  .title {
+    font-size: 13rem;
+  }
+
+  .subtitle {
+    font-size: 8rem;
+  }
+
+  .heroContent {
+    gap: 10rem;
+  }
+
+  .containerHero {
+    padding: 6rem 4rem;
+  }
+
+  .buttonContainer{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #3fb6ff;
+    //min-height: 500px;;
+  }
+}
+
+// Telas muito altas (ex: celulares verticais grandes)
+@media (max-width: 950px) and (min-height: 1500px) {
+  .title {
+    font-size: 6rem;
+  }
+
+  .subtitle {
+    font-size: 3rem;
+  }
+
+  .heroContent {
+    gap: 4rem;
+  }
+
+  .containerHero {
+    padding: 5rem 2rem;
+  }
+
+  .buttonContainer{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #3fb6ff;
   }
 }

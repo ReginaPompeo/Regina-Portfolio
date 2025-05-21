@@ -28,8 +28,9 @@ $secondary-font: 'Montserrat', sans-serif;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
+  width: 100%;
+  height: 400px; /* fixa a altura para evitar layout shift */
 }
-
 
 .footer {
   padding: 3rem 1.5rem;
@@ -37,48 +38,50 @@ $secondary-font: 'Montserrat', sans-serif;
   margin-top: auto;
   flex-direction: column;
   justify-content: center;
-  min-height: 400px;
+  min-height: 400px; /* mantém espaço consistente */
+  width: 100%;
+  position: relative; /* caso precise posicionar algo absoluto */
+}
 
-  &__content {
-    width: 100%;
-    margin: 0 auto;
-    height: 100%;
-    min-height: calc(100vh - 90px);
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    //background-color: bisque;
-    gap: clamp(2rem, 5vw, 5rem);
+.footer__content {
+  width: 100%;
+  margin: 0 auto;
+  min-height: 300px; /* menos agressivo que 100vh para estabilidade */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(2rem, 5vw, 5rem);
+  height: auto; /* evita conflitos com pai */
+  z-index: 1; /* garantir conteúdo sobre a imagem de background */
+  position: relative;
+}
+
+.footer__bottom {
+  font-size: 1rem;
+  font-family: $primary-font;
+  color: $text-color;
+  text-align: center;
+  font-weight: 200;
+
+  @media (max-width: 648px) {
+    font-weight: 400; // para melhor leitura no mobile
   }
+}
 
-  &__bottom {
-    font-size: 1rem;
-    font-family: $primary-font;
-    color: $text-color;
-    text-align: center;
-    font-weight: 200;
+.footer__scrollTop {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $text-color;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    @media (max-width: 648px) {
-      font-weight: 400; // para melhor leitura no mobile
-    }
-    //background-color: brown;
-  }
-
-  &__scrollTop {
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: $text-color;
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &:hover {
-      transform: scale(1.1);
-    }
+  &:hover {
+    transform: scale(1.1);
   }
 }
 
@@ -88,7 +91,6 @@ $secondary-font: 'Montserrat', sans-serif;
   align-items: flex-start;
   flex-wrap: wrap;
   width: 100%;
-  //background-color: #9885ff;
   margin-top: clamp(2rem, 3vw, 3rem);
 }
 
@@ -99,7 +101,6 @@ $secondary-font: 'Montserrat', sans-serif;
   align-items: center;
   gap: 1.5rem;
   justify-content: space-between;
-  //background-color: #9885ff;
 
   @media (max-width: 648px) {
     justify-content: center;
@@ -113,7 +114,6 @@ $secondary-font: 'Montserrat', sans-serif;
   font-family: $secondary-font;
   text-align: center;
   color: $text-color;
-  //background-color: #e61fc0;
 }
 
 .iconCircleGroup {
@@ -125,9 +125,6 @@ $secondary-font: 'Montserrat', sans-serif;
   @include circle-button($accent-color);
   width: 60px;
   height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   a {
     color: $text-color;
@@ -135,13 +132,11 @@ $secondary-font: 'Montserrat', sans-serif;
   }
 }
 
-
 .scrollCircle {
   @include circle-button($tertiary-color);
 }
 
 .contacts {
-  //background-color: #3fb6ff;
   text-align: center;
   color: $text-color;
   font-size: 1rem;
@@ -154,13 +149,13 @@ $secondary-font: 'Montserrat', sans-serif;
 }
 
 .logoContainer svg {
-  max-width: 400px;
+  width: 400px;      /* fixa largura */
+  height: 80px;      /* fixa altura */
+  max-width: 100%;   /* responsivo */
   max-height: 80px;
-  width: auto;
-  height: auto;
+  display: block;    /* remove espaços em linha */
+  margin: 0 auto;    /* centraliza */
 }
-
-
 
 @media (max-width: 648px) {
   .footer__top {

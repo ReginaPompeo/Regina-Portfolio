@@ -72,6 +72,7 @@ $secondary-font: 'Montserrat', sans-serif;
   display: flex;
   align-items: center;
   width: 100%;
+  font-size: clamp(1rem, 2vw, 2rem);
 
   &::after {
     content: '';
@@ -132,12 +133,12 @@ $secondary-font: 'Montserrat', sans-serif;
 
   .title{
     font-family: $secondary-font;
-    font-size: 1.5rem;
+    font-size: clamp(1.5rem, 3vw, 3rem);
   }
 
   .description{
     font-family: $primary-font;
-    font-size: 1rem;
+    font-size: clamp(1rem, 2.5vw, 2.5rem);
   }
 }
 
@@ -156,7 +157,7 @@ $secondary-font: 'Montserrat', sans-serif;
   align-items: center;
   justify-content: center;
   color: $primary-color;
-  font-size: 30px;
+  font-size: 5rem;
 }
 
 @media (max-width: 798px) {

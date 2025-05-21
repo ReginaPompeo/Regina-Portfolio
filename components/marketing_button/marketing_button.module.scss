@@ -15,14 +15,17 @@ $secondary-font: 'Montserrat', sans-serif;
     color: $tertiary-color;
     width: auto;
     font-family: $primary-font;
-    font-size: clamp(1.4rem, 2vw, 2rem);
+    font-size: clamp(1.4rem, 3vw, 6rem);
     font-weight: 600;
-    max-height: 3rem;
+    //max-height: 3rem;
     border: 0px solid transparent;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
+    height: auto;
+    min-height: clamp(2rem, 5vw, 5rem);
+
   
     &:hover {
       background: #3fb6ff;
@@ -39,3 +42,4 @@ $secondary-font: 'Montserrat', sans-serif;
         display: flex;
     }    
 }  
+

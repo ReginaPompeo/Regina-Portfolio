@@ -19,7 +19,7 @@ $secondary-font: 'Montserrat', sans-serif;
   background-position: center top; // Alinha a imagem no topo e centraliza
   display: flex;
   flex-direction: column;
-  padding: 3rem;
+  padding: clamp(3rem, 6vw, 6rem);
   justify-content: center;
   scroll-margin-top: 90px;
 }
@@ -30,7 +30,7 @@ $secondary-font: 'Montserrat', sans-serif;
   text-transform: uppercase; // deixa tudo em maiúsculo
   letter-spacing: 0.1rem;
   font-weight: 300;
-  font-size: clamp(1rem, 2vw, 2rem);
+  font-size: clamp(1.3rem, 2vw, 2rem);
 }
 
 .title {
@@ -43,7 +43,7 @@ $secondary-font: 'Montserrat', sans-serif;
 .centerContainer {
   display: flex;
   flex-direction: row;
-  gap: 1.5rem;
+  gap: clamp(1.5rem, 2vw, 2rem);
   padding: 1rem 0;
 }
 
@@ -52,7 +52,7 @@ $secondary-font: 'Montserrat', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.5rem;
+  gap: clamp(0.5rem, 1vw, 1rem);
 }
 
 .imageContainer {
@@ -93,7 +93,7 @@ $secondary-font: 'Montserrat', sans-serif;
 .text {
   color: $primary-color;
   font-family: $primary-font;
-  text-align: justify;
+  text-align: left;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -111,7 +111,7 @@ $secondary-font: 'Montserrat', sans-serif;
   gap: 1rem;
   padding-bottom: 1rem;
 }
-@media (max-width: 768px) {
+@media (max-width: 915px) {
   .containerAboutJourney{
       padding: clamp(1rem, 3vw, 3rem);
   }
@@ -127,6 +127,9 @@ $secondary-font: 'Montserrat', sans-serif;
     width: 90%;
   }
 
+  .text{
+    text-align: center;
+  }
 }
 
 
