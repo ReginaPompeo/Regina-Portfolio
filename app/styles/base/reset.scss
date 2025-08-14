@@ -1,0 +1,47 @@
+/* reset.scss */
+
+/* Reset básico para margin, padding e box-sizing */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Remover decoração de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Remover estilo padrão de listas */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Reset básico para imagens e vídeos */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Remover bordas e backgrounds de botões */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Definir fontes para o body */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

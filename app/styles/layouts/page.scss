@@ -1,0 +1,40 @@
+.page {
+  /* Variáveis CSS para cores, usadas em temas */
+  --gray-rgb: 0, 0, 0;
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+
+  display: grid;
+  align-items: center;
+  justify-items: start;
+  min-height: 100svh; /* altura da viewport */
+  overflow-x: hidden;
+  font-family: $primary-font;
+  background-color: #1a1a1a;
+  color: var(--foreground);
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --gray-rgb: 255, 255, 255;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+
+    --button-primary-hover: #ccc;
+    --button-secondary-hover: #1a1a1a;
+  }
+}
+
+/* Estilos básicos para área principal do conteúdo */
+.main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.page::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}

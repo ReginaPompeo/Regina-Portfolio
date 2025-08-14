@@ -1,0 +1,249 @@
+$primary-color: #14192d; // cor escura para o fundo da tela
+$secondary-color: #9885ff; // verde claro
+$tertiary-color: #f6f3f1; // branco
+
+.navbar {
+  width: 100%;
+  max-width: 100vw;
+  padding: clamp(1rem, 2vw, 2rem) clamp(1rem, 3vw, 3rem);
+  background-color: transparent; // começa transparente
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 90px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+    @media (min-width: 900px) and (max-width: 1025px){
+      height: auto;
+      //background-color: aqua;
+      padding: 2rem;
+    }
+
+        @media (min-width: 2000px) and (max-width: 2999px){
+      height: auto;
+      //background-color: aqua;
+      padding: 2rem;
+    } 
+
+    @media (min-width: 2400px){
+      height: auto;
+      //background-color: aqua;
+      padding: 3rem;
+    } 
+    
+    
+    @media (min-width: 4000px){
+      height: 250px;
+      //background-color: aqua;
+      padding: 5rem;
+    }  
+
+    &.scrolled {
+        background-color: $primary-color;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        backdrop-filter: blur(6px); // opcional: efeito de vidro
+  }
+
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+
+  @media (min-width: 4000px){
+    width: 8%;
+    //background-color: aqua;
+    }
+}
+
+.logo {
+  width: 140px;
+  height: auto;
+
+    @media (min-width: 1000px) and (max-width: 1999px){
+      width: 160px
+    }
+
+   @media (min-width: 2000px) and (max-width: 2999px){
+    width: 200px ;
+    }
+
+    @media (min-width: 3000px){
+    width: 250px ;
+    //background-color: aqua;
+    }
+
+    
+    @media (min-width: 5000px){
+    width: 300px;
+    //background-color: aqua;
+    }
+}
+
+.hamburger {
+  display: none;
+
+  @media (max-width: 915px) {
+    display: block;
+    cursor: pointer;
+    margin-left: auto;
+  }
+
+  .line {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px 0;
+
+     @media (min-width: 900px) and (max-width: 1025px){
+      width: 50px;
+      height: 5px;
+      margin: 7px 0;
+      //background-color: aqua;
+    }
+  }
+}
+
+/* Links para telas maiores */
+.navLinks {
+  display: flex;
+  gap: 2rem;
+  width: auto;
+
+  @media (min-width: 3000px) {
+    gap: 3rem;
+  }
+
+  @media (max-width: 915px) {
+    display: none; /* Esconde links em telas pequenas */
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    position: relative;
+    display: inline-block;
+
+    @media (min-width: 900px) and (max-width: 1025px){
+      font-size: 1.8rem;
+      //background-color: aqua;
+    }
+
+    @media (min-width: 2400px){
+      font-size: 2.5rem;
+      //background-color: aqua;
+    }
+
+        @media (min-width: 3000px){
+      font-size: clamp(1rem, 3vw, 4rem);
+      //background-color: aqua;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 2px;
+      width: 0%;
+      height: 2px;
+      background-color: #fff;
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+/* Menu aberto em telas pequenas */
+.mobileMenu {
+  display: none;
+
+  @media (max-width: 915px) {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: $primary-color;
+    z-index: 2000;
+    padding: 2rem;
+  }
+}
+
+.closeBtn {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: clamp(2rem, 4vw, 5rem);
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.mobileNavLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+
+  a {
+    color: #fff;
+    font-size: clamp(1.5rem, 3vw, 4rem);
+    text-decoration: none;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      height: 2px;
+      width: 0;
+      background: #fff;
+      transition: 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+
+// Telas ultra largas (4K/5K)
+@media (min-width: 3000px) {
+  .navLinks, .a {
+    font-size: clamp(2rem, 3vw, 3rem);
+  }
+ .navbar {
+  padding: 2rem clamp(3rem, 5vw, 5rem);
+ }
+  .logo {
+  width: 100%;
+  height: auto;
+}
+}
+
+// Telas muito altas (ex: celulares verticais grandes)
+@media (max-width: 950px) and (min-height: 1500px) {
+  .logo {
+  width: 90%;
+  height: auto;
+}
+
+  .mobileMenu {
+    height: auto;
+    min-height: 100vh; // garante que ainda ocupe a tela toda se for pouco conteúdo
+  }
+}

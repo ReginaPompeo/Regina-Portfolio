@@ -1,0 +1,33 @@
+@import './variables.scss';
+
+// Títulos principais (h1)
+h1 {
+  color: $text-color;
+  font-size: clamp(2.5rem, 5vw, 6rem);
+  font-family: $secondary-font;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+// Subtítulos (.subtitle) e listas (ul, li) seguindo subtítulo
+.subtitle,
+ul,
+li {
+  color: $text-color;
+  font-family: $primary-font;
+  font-size: clamp(1.25rem, 2.5vw, 2.5rem);
+  font-weight: 300;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+// Remove o padding e margin padrão das listas para controle total
+ul {
+  padding-left: 1.5rem;  // padrão, ajuste se quiser
+  margin: 0;
+  list-style-position: inside;
+}
+
+li:not(:last-child) {
+  margin-bottom: 0.5rem;
+}

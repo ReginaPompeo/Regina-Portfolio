@@ -1,0 +1,204 @@
+// Variáveis
+$primary-color: #14192d;
+$secondary-color: #9885ff;
+$tertiary-color: #f6f3f1;
+$accent-color: #e61fc0;
+$text-color: #3fb6ff;
+
+$primary-font: 'Public Sans', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;
+
+// Container principal
+.containerHero {
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: clamp(1rem, 3vw, 3rem);
+  text-align: center;
+  background-color: $primary-color; // fallback se vídeo falhar
+  z-index: 0;
+}
+
+// Conteúdo central (textos + botão)
+.heroContent {
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1rem, 8vmin, 8rem);
+}
+
+// Vídeo de fundo
+.backgroundVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+// Container dos textos
+.headerTexts {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(7rem, 9vw, 9rem);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+// Título principal
+.title {
+  color: $tertiary-color;
+  font-size: clamp(3rem, 4vw, 4rem);
+  font-family: $secondary-font;
+  font-weight: 800;
+  text-align: center;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+// Subtítulos
+.subtitle {
+  color: $tertiary-color;
+  font-family: $primary-font;
+  font-size: clamp(2.5rem, 3.5vw, 3.5rem);
+  font-weight: 300;
+  align-items: center;
+  justify-content: center;
+}
+
+// Botão de marketing
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+// Wrapper para a seta fixa no rodapé da section
+.scrollArrowWrapper {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+// Botão de rolagem com ícone
+.scrollButton {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.setaIcone {
+  max-width: 64px;
+  height: auto;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(5px);
+  }
+}
+
+// Responsivo
+@media (max-width: 648px) {
+  .containerHero {
+    padding-top: 81px;
+  }
+
+  .headerTexts {
+    gap: clamp(5rem, 6vw, 6rem);
+  }
+  .title {
+    font-size: clamp(2rem, 3vw, 3rem);
+  }
+
+  .subtitle {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+  }
+
+  .setaIcone {
+    max-width: 48px;
+  }
+
+  .buttonContainer {
+  margin-top: clamp(2.5rem, 3vw, 3rem);
+}
+}
+// Telas ultra largas (4K/5K)
+@media (min-width: 3000px) {
+  .title {
+    font-size: 13rem;
+  }
+
+  .subtitle {
+    font-size: 8rem;
+  }
+
+  .heroContent {
+    gap: 10rem;
+  }
+
+  .containerHero {
+    padding: 6rem 4rem;
+  }
+
+  .buttonContainer{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    //min-height: 500px;;
+  }
+  .setaIcone {
+  max-width: 80px;
+  }
+}
+
+@media (min-width: 4500px) {
+    .setaIcone {
+  max-width: 120px;
+  }
+}
+// Telas muito altas (ex: celulares verticais grandes)
+@media (max-width: 915px) and (min-height: 1500px) {
+  .headerTexts{
+    gap: clamp(8rem, 10vw, 10rem);
+  }
+
+  .title {
+    font-size: 6rem;
+  }
+
+  .subtitle {
+    font-size: 3rem;
+  }
+
+  .heroContent {
+    gap: 4rem;
+  }
+
+  .containerHero {
+    padding: 5rem 2rem;
+  }
+
+  .buttonContainer{
+    margin-top: clamp(2.5rem, 3vw, 3rem);
+  }
+
+  .setaIcone {
+  max-width: 80px;
+  }
+}

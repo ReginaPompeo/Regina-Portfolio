@@ -1,0 +1,165 @@
+$primary-color: #14192d;
+$secondary-color: #9885ff;
+$tertiary-color: #3fb6ff;
+$accent-color: #e61fc0;
+$text-color: #f6f3f1;
+
+$primary-font: 'Public Sans', sans-serif;
+$secondary-font: 'Montserrat', sans-serif;
+
+@mixin circle-button($bg-color) {
+  background-color: $bg-color;
+  border-radius: 50%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.1);
+    background-color: $secondary-color;
+    color: $text-color;
+  }
+}
+
+.lazyBackground {
+  background-image: url('/background/background-footer.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+    width: 100vw;
+  height: 400px; /* fixa a altura para evitar layout shift */
+}
+
+.footer {
+  padding: 3rem 1.5rem;
+  display: flex;
+  margin-top: auto;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 400px; /* mantém espaço consistente */
+  width: 100%;
+  position: relative; /* caso precise posicionar algo absoluto */
+}
+
+.footer__content {
+  width: 100%;
+  margin: 0 auto;
+  min-height: 300px; /* menos agressivo que 100vh para estabilidade */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(2rem, 5vw, 5rem);
+  height: auto; /* evita conflitos com pai */
+  z-index: 1; /* garantir conteúdo sobre a imagem de background */
+  position: relative;
+}
+
+.footer__bottom {
+  font-size: 1rem;
+  font-family: $primary-font;
+  color: $text-color;
+  text-align: center;
+  font-weight: 200;
+
+  @media (max-width: 648px) {
+    font-weight: 400; // para melhor leitura no mobile
+  }
+}
+
+.footer__scrollTop {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $text-color;
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.footer__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-top: clamp(2rem, 3vw, 3rem);
+}
+
+.footer__half {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  justify-content: space-between;
+
+  @media (max-width: 648px) {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.titleIcons,
+.titleScroll {
+  font-size: clamp(1rem, 2vw, 2rem);
+  font-family: $secondary-font;
+  text-align: center;
+  color: $text-color;
+}
+
+.iconCircleGroup {
+  display: flex;
+  gap: 1rem;
+}
+
+.iconCircle {
+  @include circle-button($accent-color);
+  width: 60px;
+  height: 60px;
+
+  a {
+    color: $text-color;
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+  }
+}
+
+.scrollCircle {
+  @include circle-button($tertiary-color);
+}
+
+.contacts {
+  text-align: center;
+  color: $text-color;
+  font-size: 1rem;
+  font-family: $primary-font;
+  font-weight: 400;
+
+  p + p {
+    margin-top: 1rem; // espaço entre parágrafos
+  }
+}
+
+.logoContainer svg {
+  width: 400px;      /* fixa largura */
+  height: 80px;      /* fixa altura */
+  max-width: 100%;   /* responsivo */
+  max-height: 80px;
+  display: block;    /* remove espaços em linha */
+  margin: 0 auto;    /* centraliza */
+}
+
+@media (max-width: 648px) {
+  .footer__top {
+    flex-direction: column;
+    gap: 2rem;
+  }
+}

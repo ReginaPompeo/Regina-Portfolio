@@ -1,0 +1,13 @@
+// global.scss
+
+@import './base/reset.scss';
+
+// Importa variáveis e temas (por padrão o light, troque conforme quiser)
+@import './base/variables.scss';     // <- Aqui estão suas variáveis
+@import './themes/light.scss';       // <- Este pode usar as variáveis
+
+// Importa o layout da página
+@import './layouts/page.scss';       // <- Esse precisa das variáveis, então deve vir depois
+
+// Tipografia
+@import './base/typography.scss';
